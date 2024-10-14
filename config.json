@@ -1,0 +1,6 @@
+{
+  "language": 0,                                                      //  0 english, 1 usa, 2 french,
+  "windowSize": 2                                                     //  1 : 640 * 400, 2 : 1280 * 800, 3 : 1920 * 1200
+}
+
+

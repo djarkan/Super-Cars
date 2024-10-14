@@ -1,0 +1,135 @@
+{
+    "Ron&Nancy" :
+    {
+        "intro" :
+        [
+            "Salut. Ray est mon prénom et la télé \nest mon dada. Les meilleurs pilotes...\n",
+            "Bonsoir les amis. Je suis Ron Gunn, \net c'est l'heure des résultats....\n",
+            "Bienvenue pour les résultats. Pour,\ncommencer, les pilotes du jour....\n",
+            "Bienvenue avec Ron et Nancy, pour les\nrésultats. Voici la crème des pilotes.\n",
+            "Ici Ron Gunn pour les résultats.\nD'abord la crème des pilotes....\n",
+            "Coucou. Je suis Ron Gunn. Prenez un\nbon café, et voyons les tops pilotes.\n"
+        ],
+        "bestDrivers" :
+        [
+            [  //1
+                "En haut de l'affiche se trouve NAME,\nX courses, et MONEY€ en poche.\n",
+                "Le pilote du jour est NAME avec X,\ncourses et MONEY€ non utilisés.\n",
+                "Premier de la meute, NAME, avec \nX courses, et MONEY€ à la banque.\n",
+                "Menant la concurance, NAME qui a X\ncourses, et MONEY€ à dépenser.\n"
+            ],
+            [  // 2
+                "Deuxième c'est une belle performance,\nNAME, X courses, un montant de MONEY€.\n",
+                "A un souffle derrière le leader, NAME\navec X courses et MONEY€ en poche.\n",
+                "Solidement juste derrière, NAME avec\nX courses et la belle somme de MONEY€.\n",
+                "Le deuxième est notre vieil ami NAME,\nqui suit avec X courses et MONEY€.\n"
+            ],
+            [  // 3
+                "Juste dans les trois se trouve NAME,\navec un superbe X courses et MONEY€.\n",
+                "Sur les talons, à la troisième place,\nNAME, avec X courses et MONEY€.\n",
+                "La médaille de bronze pour NAME avec,\nX courses et MONEY€ dans sa tirelire.\n",
+                "A une honorable troisième place, NAME,\navec X courses, sans oublier MONEY€.\n"
+            ],
+            [  // 4
+                "Le suivant est NAME avec un beau,\nX courses, MONEY€, et une peluche.\n",
+                "En quatrième place c'est NAME avec un\nsuperbe X courses, MONEY€ à dépenser.\n",
+                "Au pied du podium se trouve NAME avec\njuste, X courses, le magot de MONEY€.\n",
+                "Suivant à la quatrième place, NAME\navec X courses et  MONEY€ en liquide.\n"
+            ],
+            [  // 5
+                "Accroché là, nous trouvons NAME avec X\ncourses, un porte-monnaie de MONEY€.\n",
+                "L'avant dernier est NAME. Un bel essai\navec X courses et un prix de MONEY€...\n",
+                "Englué à la cinquième place, NAME,\ncrédité de X courses et MONEY€.\n",
+                "Cinquième position au classement pour\nNAME, qui a X courses et MONEY€.\n"
+            ],
+            [  // 6
+                "La lanterne rouge est NAME avec un,\ninespéré X courses et MONEY€.\n",
+                "En queue de peloton se trouve NAME,\nX courses et avec seulement MONEY€.\n",
+                "Loin à la sixième place, NAME avec un,\nmaigre X courses et un petit MONEY€.\n",
+                "Dernier et probablement le moins bon,\nNAME avec, X courses et MONEY€.\n"
+            ]
+        ],
+        "ronToNancy" :
+            [
+                "Il est temps de retouver Nancy, avec\nle bilan des meilleurs tours.\n",
+                "Passons le relais à Nancy, pour la\nliste exhaustive des perfs du jour.\n",
+                "Ecoutons ma co-présentatrice, Nancy,\nsur les meilleurs temps du jour....\n",
+                "OK Nancy, énoncez les meilleurs temps\ndes courses à nos téléspectateurs.\n",
+                "A vous Nancy. Découvrons toutes le,\nrécapitulatif des meilleurs temps.\n"
+            ],
+        "startNancy" :
+            [
+                "Merci Ron. Les pistes n'avaient jamais\nvus une telle vitesse qu'aujourd'hui.\n",
+                "Merci Ron. Vous ne croierez pas les\nmeilleurs temps enregistrés ce jour.\n",
+                "Merci Ron. C'était merveilleux. Quel\njour nous avons eu sur les pistes.\n",
+                "Merci Ron. Nous avons quelques surpre\nnants temps sur les circuits du jour.\n",
+                "Merci Ron. Je suis sans voix sur les\nmeilleurs tours d'aujourd'hui....\n"
+            ],
+        "bestTracks" :
+        [
+            [  // 1
+                "Sorti du lot sur la piste 1, c'est\nNAME, qui signe un temps de TIMESs.\n",
+                "A la première place sur la piste 1 est\nNAME, qui a réalisé le temps de TIMES.\n",
+                "Le plus rapide sur la piste 1 est NAME\navec un temps canon de TIMES secondes.\n",
+                "Détenteur du record sur piste 1, NAME,\navec un incroyable temps de TIMESs.\n"
+            ],
+            [  // 2,
+                "La piste 2 est détenue par NAME avec\navec un temps brillant de TIMESs.\n",
+                "Le roi du pétrole sur la piste 2 est\nNAME, avec un temps éclair de TIMESs.\n",
+                "Juste derrière sur la piste 2, NAME\nqui claque un temps de TIMES secondes.\n",
+                "A l'avant sur la piste 2 se trouve\nNAME, le temps est de TIMES secondes.\n"
+            ],
+            [  // 3
+                "Piste 3, le record va à NAME qui a\nbouclé le tour en TIMES secondes.\n",
+                "Pas de chichi avec NAME qui ravi le\nrecord sur la piste 3 avec TIMESs.\n",
+                "La piste 3, toujours domptée par NAME\navec un fabuleux temps de TIMESs.\n",
+                "La piste 3 semble la favorite de NAME,\navec un temps de TIMES secondes.\n"
+            ],
+            [  // 4
+                "Sur la piste 4, le meilleur est NAME,\navec ce temps de TIMES secondes.\n",
+                "NAME détient le meilleur tour de la\npiste 4, avec un fabuleux TIMESs.\n",
+                "NAME a tourné comme un chef piste 4,\navec un temps de seulement TIMESs.\n",
+                "Notre vieux pote NAME fini premier\nsur la piste 4 avec un tour en TIMESs.\n"
+            ],
+            [  // 5
+                "NAME a la main mise sur la piste 5,\navec le temps de TIMESs, sans forcer!\n",
+                "NAME a mis le turbo sur la piste 5!\nQuel tour pharamineux! TIMES secondes.\n",
+                "Le tour de la piste 5 revient à NAME\nqui l'a survolé en TIMES secondes.\n",
+                "La piste 5 est toujours dominée par\ncet incroyable NAME et TIMES secondes.\n"
+            ],
+            [  // 6
+                "La piste 6 est toujours la préférée de\nNAME, détenant le record avec TIMESs.\n",
+                "Le premier de la classe sur la piste 6\nest NAME, qui s'envole avec TIMESs.\n",
+                "Sur la piste 6, la première place est\ndétenue par NAME. Un chrono de TIMESs.\n",
+                "NAME est toujours la personne à battre\nsur la piste 6 en TIMES secondes.\n"
+            ],
+            [  // 7
+                "Se hissant en tête sur la piste 7,\nc'est NAME, signant un bon TIMES.\n",
+                "NAME toujours devant sur la piste 7,\navec le temps de TIMESs et un cachou.\n",
+                "Piste 7 sans trembler pour NAME, qui\nsigne un temps de TIMES secondes.\n",
+                "NAME, très loin devant sur la piste 7\navec, simplement TIMES secondes.\n"
+            ],
+            [  // 8
+                "Je peux à peine décrire ce tour par\nNAME, avec TIMESs sur la piste 8.\n",
+                "Unique et sans égal, NAME est toujours\nau top, avec TIMES secondes.\n",
+                "Le record de la piste 8, conclu par\nNAME, avec un tour de folie de TIMESs.\n",
+                "Piste 8.... NAME.... TIMESs.... Que\npuis-je dire de plus....\n"
+            ],
+            [  // 9 
+                "Au final, piste 9. Un grand tour de\nNAME pour l'honneur, TIMES secondes.\n",
+                "Finalement, NAME se charge de la piste\n9,avec un temps chirurgical de TIMESs.\n",
+                "Et bien sûr, la piste 9, sied bien à\nNAME qui prend les renes avec TIMESs.\n",
+                "Pour finir sur la piste 9, NAME claque\nun temps de TIMESs et prend la tête.\n"
+            ]
+        ],
+        "outro" :
+        [
+   	    "Nous revenons avant que vous ne vous\nen aperceviez. D'abord quelques pubs.\n",
+            "J'espere vous revoir pour le prochain\nnuméro pour de nouvelles aventures.\n",
+            "Merci de nous regarder. Retrouvons\nnous pour la prochaine édition.",
+            "Ne changez pas de chaîne les amis,\nNous revenons après une page de pub.\n",
+   	    "Bien, c'est tout pour ce soir. On se\nrevois bientôt. Au revoir les amis.\n",
+            "C'est tout pour Ron et moi-même pour\nle moment. On se retrouve plus tard.\n"
+        ]
+    }
+}

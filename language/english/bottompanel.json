@@ -1,0 +1,29 @@
+{
+    "bottomScreen" :
+    {
+        "text" : "CASH    CAR            ENG BOD FUE TYR\n                       ",
+        "carModel" :
+        [
+            "1.6 Taraco Neo",
+            "1.9 Taraco Neo",
+            "2.3 Vaug Inter",
+            "3.0 Vaug Inter",
+            "5.0 Retron Par",
+            "6.5 Retron Par",
+            "8.0 Retron Par"
+        ],
+        "carUsury" :
+        {
+            "engine" : "ENG",
+            "tyres" : "TYR",
+            "body" : "BOD",
+            "fuel" : "FUE"
+        },
+        "labels" :
+        {
+            "cash" : "CASH",
+            "car" : "CAR"
+        },
+        "currency" : "£"
+    }
+}

@@ -1,0 +1,11 @@
+{
+  "loading": " \nloading...",
+  "wonStage1": "Stage 1 finished.\nStage 2 password ODIE.\n Results follow soon.",
+  "wonStage2": "Stage 2 finished.\nStage  password BIGC.\n Results follow soon.",
+  "raceLost": "I's tough at the top.\nYou weren't placed.\nResults follow soon.",
+  "TyresBroken": "You skidded once too \noften, and your tyres \nexplded.",
+  "raceWon": " Congratulations.\nTrack X completed.\nResults follow soon.",
+  "noJoystick": "No joystick detected. \nGame can't be played \nwithout a joystick.",
+  "sevaralJoystick": " Several joysticks.\nPlease press fire to \nchoose your joystick.",
+  "loadSavedGame": "  Loading saved game."
+}

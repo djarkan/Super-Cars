@@ -1,0 +1,44 @@
+{
+    "graphics" :
+    [
+        {
+           "key" : cars,
+           "path" : \graphics\cars\cars.png
+        },
+        {
+           "key" : track1,
+           "path" : \graphics\tracks\track1.png
+        },
+        {
+            "key" : track2,
+            "path" : \graphics\tracks\track2.png
+        },
+        {
+            "key" : track3,
+            "path" : \graphics\tracks\track3.png
+        },
+        {
+            "key" : track4,
+            "path" : \graphics\tracks\track4.png},
+        {
+            "key" : track5,
+            "path" : \graphics\tracks\track5.png
+        },
+        {
+            "key" : track6,
+            "path" : \graphics\tracks\track6.png
+        },
+        {
+            "key" : track7,
+            "path" : \graphics\tracks\track7.png
+        },
+        {
+            "key" : track8,
+            "path" : \graphics\tracks\track8.png
+        },
+        {
+            "key" : track9,
+            "path" : \graphics\tracks\track9.png
+        }
+    ]
+}

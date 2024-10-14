@@ -1,0 +1,105 @@
+{
+    "races" :
+    [
+        {
+            "cartype" : [0, 0, 0],
+            "carspeedlimiter" : [0.5, 0.55, 0.6],
+            "names" : ["ANDY", "JEZZ", "DAVE"]
+        },
+        {
+            "cartype" : [0, 0, 0],
+            "carspeedlimiter" : [0.55, 0.6, 0.65],
+            "names" : ["DOUG", "PETE", "GARF"]
+        },
+        {                                       ///////////  faire simplement un % de la vitesse max de la meilleure voitures pour toutes les vitesses de chaque models !!!!!!!!!!!!!!!!!!!!!!!
+            "cartype" : [0, 0, 0, 2],
+            "carspeedlimiter" : [0.6, 0.65, 0.70, 0.60],
+            "names" : ["MARI", "ANNE", "ANDY", "JEZZ" ]
+        },
+        {
+            "cartype" : [0, 0, 0, 2],
+            "carspeedlimiter" : [0.65, 0.70, 0.75, 0.65],
+            "names" : ["DAVE", "DOUG", "PETE", "GARF"]
+        },
+        {
+            "cartype" : [0, 0, 2, 2],
+            "carspeedlimiter" : [0.70, 0.75, 0.65, 0.70],
+            "names" : ["MARI", "ANNE", "ANDY", "JEZZ"]
+        },
+        {
+            "cartype" : [0, 0, 2, 2, 2],
+            "carspeedlimiter" : [0.75, 0.80, 0.70, 0.75, 0.80],
+            "names" : ["DAVE", "DOUG", "PETE", "GARF", "MARI"]
+        },
+        {
+            "cartype" : [0, 2, 2, 2, 4],
+            "carspeedlimiter" : [0.80, 0.70, 0.75, 0.80, 0.48],
+            "names" : ["ANNE", "ANDY", "JEZZ", "GARF", "DAVE"]
+        },
+        {
+            "cartype" : [0, 2, 2, 2, 4],
+            "carspeedlimiter" : [0.85, 0.75, 0.80, 0.85, 0.53],
+            "names" : ["DOUG", "PETE", "GARF", "GARF", "MARI"]
+        },
+        {
+            "cartype" : [0, 2, 2, 4, 4, 4],
+            "carspeedlimiter" : [0.90, 0.80, 0.85, 0.53, 0.58, 0.63],
+            "names" : ["ANNE", "ANDY", "JEZZ", "GARF", "DAVE", "DOUG"]
+        },
+    // level 2
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        },
+        {
+
+        }
+    ]
+}

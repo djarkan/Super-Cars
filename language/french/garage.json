@@ -1,0 +1,12 @@
+{
+    "garage" :
+    {
+        "title" : "SERVICES VOITURE",
+        "motor" : "MOTEUR",
+        "tyres" : "PNEUS",
+        "body" : "CARROS",
+        "fuel" : "ESSENC",
+        "sold" : "VENDU",
+        "currency" : "€"
+    }
+}

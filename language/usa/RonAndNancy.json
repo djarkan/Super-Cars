@@ -1,0 +1,135 @@
+{
+    "Ron&Nancy" :
+    {
+        "intro" :
+        [
+            "Hi. Ray's my middle name and reporting,\nis my game. Here are the best drivers.\n",
+            "Good Evening folks. I'm Ron Gunn and,\nit's time for Results desk....'\n",
+            "Welcome to Results desk. First, all of,\nthe best drivers today....\n",
+            "Welcome to Results desk with Ron and,\nNancy. Let's see the top drivers.\n",
+            "This is Ron Gunn repporting for Results,\ndesk. First, today's top drivers....\n",
+            "Hello. I'm Ron Gunn. Have a cookie.\nHere's a list of today's top drivers.\n"
+        ],
+        "bestDrivers" :
+        [
+            [  //1
+                "Top of the pile is NAME with X races,\nand $MONEY cash left.\n",
+                "Today's best driver is NAME with X,\nraces and $MONEY unused cash.\n",
+                "Leading the pack is NAME with X races,\nand $MONEY money in the bank.\n",
+                "Heading the field is NAME who had X,\nraces and $MONEY cash to spare.\n"
+            ],
+            [  // 2
+                "Second in line is a good performence,\nfrom NAME with X races and $MONEY.\n",
+                "Breathing down the leader's neck is,\nNAME with X races and $MONEY money.\n",
+                "Just behind is NAME with a solid X,\nraces and a whopping $MONEY cash.\n",
+                "Next to top is our old friend NAME who,\nhad X races and was left with $MONEY.\n"
+            ],
+            [  // 3
+                "Just in the top three is NAME with a,\nsuperb X races an $MONEY.\n",
+                "Hot on the heels in third place, is,\nNAME with X races and $MONEY.\n",
+                "In bronze medal position is NAME with,\nX races and a cash supply of $MONEY.\n",
+                "In a commendable third place is NAME,\nwith X races, not to mention $MONEY.\n"
+            ],
+            [  // 4
+                "Next in line is NAME with an amazing,\nX races, $MONEY cash and a giraffe.\n",
+                "In fourth place is NAME with a superb,\nX races and $MONEY to spare.\n",
+                "In slot number four is NAME with just,\nX races and $MONEY cash.\n",
+                "Holding up well in fourth place is,\nNAME with X races and $MONEY cash.\n"
+            ],
+            [  // 5
+                "Hanging in there is NAME with X,\nraces and $MONEY cash in the bank.\n",
+                "Next to bottom is NAME. A fair try,\nwith X races and $MONEY to boot....\n",
+                "Down in fifth place is NAME,\ncredital X races and $MONEY.\n",
+                "Position number five on the board for,\nNAME who had X races and $MONEY.\n"
+            ],
+            [  // 6
+                "Bringing up the rear is NAME with a,\nhopeless X races and $MONEY.\n",
+                "Right at the bottom is NAME with ONLY,\nX races and only $MONEY left.\n",
+                "Way down in sixth place is NAME with a,\nmeagre X races and a mere $MONEY.\n",
+                "Last and probably least is NAME with,\nX races and $MONEY unspent cash.\n"
+            ]
+        ],
+        "ronToNancy" :
+            [
+                "Now it's time for Nancy to fill you in,\nwith the info on today's fastest laps.\n",
+                "But now let's switch to Nancy for some,\ninformation on the quickest lap times.\n",
+                "Now let's hear from my copresenter,\nNancy, about some fast lap times....\n",
+                "OK. Nancy, tell the peaple about some,\nfast lap times ....\n",
+                "Over to you Nancy. Let's have all the,\ninfo on the best lap times.\n"
+            ],
+        "startNancy" :
+            [
+                "Thanks Ron. The tracks haven't seen,\nsuch speeds as we've had today....\n",
+                "Thanks Ron. You woudn't believe some,\nof the lap times recorded today....\n",
+                "Thanks Ron. That was marvellous. What,\na day we've had on the tracks....\n",
+                "Thanks Ron. We've had some amazing,\ntimes out on the tracks today....\n",
+                "Thanks Ron. I'm speechless about some,\nof the lap times we've had today....\n"
+            ],
+        "bestTracks" :
+        [
+            [  // 1
+                "Pick of the pack on track 1 is NAME,\nwho recorded a time of TIMES seconds.\n",
+                "In number one spot on track 1 is NAME,\nwho managed a lap time of just TIMES.\n",
+                "Fastest on track 1 is NAME with a,\nstaggering time of TIMES seconds.\n",
+                "Holding the record on track 1 is NAME,\nwith an unbelievable time of TIMES.\n"
+            ],
+            [  // 2,
+                "Holding on at top of track 2 is,\nNAME with a brillant TIMES lap.\n",
+                "King of the castle on track 2 is NAME,\nwith a lightning fast lap of TIMES.\n",
+                "Top dog on track 2 is NAME who,\nnotched up a lap of TIMES seconds.\n",
+                "In the lead on track 2 is NAME with,\nan incredible time of TIMES seconds.\n"
+            ],
+            [  // 3
+                "Track 3's record goes to NAME who had,\na speedy lap of TIMES seconds.\n",
+                "No messing with NAME who holds the top,\ntime on track 3 with a time of TIMES.\n",
+                "Track 3 is still ruled by NAME with,\nan amazing time of TIMES seconds.\n",
+                "Track 3 seems to be favoured by NAME,\nwith a lap time of TIMES seconds.\n"
+            ],
+            [  // 4
+                "On track 4 the top spot goes to NAME,\nwith that time of TIMES seconds.\n",
+                "NAME hods the best lap on track 4,\nwith a fabulous time of TIMES seconds.\n",
+                "NAME seems to have mastered track 4,\nwith a time of only TIMES seconds.\n",
+                "Our old pal NAME is heading the list,\non track 4 with a lap timeS of TIMES.\n"
+            ],
+            [  // 5
+                "NAME gets the nod on track 5 with a,\ntime of TIMES seconds and a zebra.\n",
+                "The record on track 5 is held by your,\nfriend and mine, NAME with TIMES.\n",
+                "On track 5 the best time belongs to,\nNAME who whizzed round a lap of TIMES.\n",
+                "Track 5 is still dominated by that,\nincredible time from NAME of TIMES.\n"
+            ],
+            [  // 6
+                "Track 6 is still favourite for NAME,\nholding on to the top sopt with TIMES.\n",
+                "Pick of the pops on track 6 is NAME,\nwho still rules the roost with TIMES.\n",
+                "On track 6, first place is held by,\nNAME with a snappy lap of TIMES.\n",
+                "NAME is still the one to beat on,\ntrack 6, with that time of TIMES.\n"
+            ],
+            [  // 7
+                "Hitting the top on track 7 is NAME,\nwho recorded an amazing time of TIMES.\n",
+                "NAME still leads the list on track 7,\nwith a time of TIMES and a frozen pig.\n",
+                "Track 7 holds no terrors for NAME who,\nclocked up a time of TIMES seconds.\n",
+                "NAME is streets ahead on track 7 with,\na lap time of a mere TIMES seconds.\n"
+            ],
+            [  // 8
+                "I can't even begin to discribe the lap,\nby NAME of TIMES on track 8.\n",
+                "The one and only NAME is still top on,\ntrack 8 with a lightning lap of TIMES\n",
+                "The record on track 8 is held by NAME,\nwho shot into first place with TIMES.\n",
+                "Track 8.... NAME.... TIMES.... What,\nmore can I say....\n"
+            ],
+            [  // 9
+                "Lastely, track 9. A great lap gives,\nNAME the honours, clocking up TIMES.\n",
+                "Finally, NAME is in charge on track 9,\nwith a blistering time of TIMES.\n",
+                "And of course, on track 9, NAME rules,\nthe roost with that time of TIMES.\n",
+                "Finally, on track 9, NAME recorded a,\ntime of TIMES to lead the pack.\n"
+            ]
+        ],
+        "outro" :
+        [
+            "We'll be back before you know it, but,\nfirst some commercials....\n",
+            "Hope to see you again in the next,\nedition of Results desk. Goddbye.\n",
+            "Thanks for watching Result Desk. See,\nyou all real soon in the next edition\n",
+            "Don't change that channel folks, we'll,\nbe right back after the commercials.\n",
+            "Well, that's all from Results Desk for,\nnow. See you all again real soon....\n",
+            "That's all from Ron and myself for,\nnow. See you all later....\n"
+        ]
+    }
+}

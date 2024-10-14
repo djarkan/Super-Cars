@@ -1,0 +1,8 @@
+{
+    "pseudo" :
+    [
+        "VEUILLEZ ENTRER", "VOTRE NOM"
+    ],
+    "error" : " Erreur durant le chargement de la texture des voitures.\nVeuillez réintaller le jeu."
+}
+

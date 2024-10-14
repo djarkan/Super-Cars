@@ -1,0 +1,12 @@
+{
+    "garage" :
+    {
+        "title" : "CAR SERVICES",
+        "motor" : "ENGINE",
+        "tyres" : "TYRES",
+        "body" : "BODY",
+        "fuel" : "FUEL",
+        "sold" : "SOLD",
+        "currency" : "£"
+    }
+}

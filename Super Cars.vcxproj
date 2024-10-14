@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\mylib\audioPlayer\audioPlayer.cpp" />
+    <ClCompile Include="..\mylib\bitmap\animationPlayer\animationPlayer.cpp" />
+    <ClCompile Include="..\mylib\bitmap\simpleAnimation\animation.cpp" />
+    <ClCompile Include="..\mylib\button\button\button.cpp" />
+    <ClCompile Include="..\mylib\button\complexClickBox\complexClickBox.cpp" />
+    <ClCompile Include="..\mylib\button\simpleClickBox\simpleClickBox.cpp" />
+    <ClCompile Include="..\mylib\clickable\clickable.cpp" />
+    <ClCompile Include="..\mylib\collisioner\collisioner.cpp" />
+    <ClCompile Include="..\mylib\jsonfile\jsoncpp.cpp" />
+    <ClCompile Include="..\mylib\jsonfile\jsonfile.cpp" />
+    <ClCompile Include="..\mylib\music\music.cpp" />
+    <ClCompile Include="..\mylib\text\bitmapfont\bitmapFont.cpp" />
+    <ClCompile Include="..\mylib\text\bitmaptext\bitmapText.cpp" />
+    <ClCompile Include="..\mylib\timer\timer.cpp" />
+    <ClCompile Include="source\bottompanel.cpp" />
+    <ClCompile Include="source\car.cpp" />
+    <ClCompile Include="source\carTextureColorModifier.cpp" />
+    <ClCompile Include="source\commandqueue.cpp" />
+    <ClCompile Include="source\game.cpp" />
+    <ClCompile Include="source\garage.cpp" />
+    <ClCompile Include="source\infoPannel.cpp" />
+    <ClCompile Include="source\inputs.cpp" />
+    <ClCompile Include="source\intro.cpp" />
+    <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\message.cpp" />
+    <ClCompile Include="source\office.cpp" />
+    <ClCompile Include="source\player.cpp" />
+    <ClCompile Include="source\players.cpp" />
+    <ClCompile Include="source\race.cpp" />
+    <ClCompile Include="source\racebottompanel.cpp" />
+    <ClCompile Include="source\track.cpp" />
+    <ClCompile Include="source\trackRework.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\mylib\assetcontainer\assetcontainer.hpp" />
+    <ClInclude Include="..\mylib\audioPlayer\audioPlayer.hpp" />
+    <ClInclude Include="..\mylib\bitmap\animationPlayer\animationPlayer.hpp" />
+    <ClInclude Include="..\mylib\bitmap\simpleAnimation\animation.hpp" />
+    <ClInclude Include="..\mylib\button\button\button.hpp" />
+    <ClInclude Include="..\mylib\button\complexClickBox\complexClickBox.hpp" />
+    <ClInclude Include="..\mylib\button\simpleClickBox\simpleClickBox.hpp" />
+    <ClInclude Include="..\mylib\clickable\clickable.hpp" />
+    <ClInclude Include="..\mylib\collisioner\collisioner.hpp" />
+    <ClInclude Include="..\mylib\jsonfile\jsonfile.hpp" />
+    <ClInclude Include="..\mylib\music\music.hpp" />
+    <ClInclude Include="..\mylib\random\random.hpp" />
+    <ClInclude Include="..\mylib\text\bitmapfont\bitmapFont.hpp" />
+    <ClInclude Include="..\mylib\text\bitmaptext\bitmapText.hpp" />
+    <ClInclude Include="..\mylib\timer\timer.hpp" />
+    <ClInclude Include="..\mylib\triple\triple.hpp" />
+    <ClInclude Include="header\assetkey.hpp" />
+    <ClInclude Include="header\bottompanel.hpp" />
+    <ClInclude Include="header\car.hpp" />
+    <ClInclude Include="header\carTextureColorModifier.hpp" />
+    <ClInclude Include="header\command.hpp" />
+    <ClInclude Include="header\commandqueue.hpp" />
+    <ClInclude Include="header\game.hpp" />
+    <ClInclude Include="header\garage.hpp" />
+    <ClInclude Include="header\infoPannel.hpp" />
+    <ClInclude Include="header\inputs.hpp" />
+    <ClInclude Include="header\intro.hpp" />
+    <ClInclude Include="header\message.hpp" />
+    <ClInclude Include="header\office.hpp" />
+    <ClInclude Include="header\player.hpp" />
+    <ClInclude Include="header\players.hpp" />
+    <ClInclude Include="header\race.hpp" />
+    <ClInclude Include="header\racebottompanel.hpp" />
+    <ClInclude Include="header\track.hpp" />
+    <ClInclude Include="header\trackRework.hpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{82e7f589-d681-4b8e-aa09-2ec3d8b5cf55}</ProjectGuid>
+    <RootNamespace>SuperCars</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\Djarkan\Documents\C++\visual c++\Super Cars;C:\Users\Djarkan\Documents\C++\visual c++\mylib;C:\Users\Djarkan\Documents\C++\visual c++\SFML-2.6.1\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\Djarkan\Documents\C++\visual c++\SFML-2.6.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;sfml-network-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\Djarkan\Documents\C++\visual c++\Super Cars;C:\Users\Djarkan\Documents\C++\visual c++\mylib;C:\Users\Djarkan\Documents\C++\visual c++\SFML-2.6.1\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;sfml-audio-d.lib;sfml-network-d.libsfml-graphics.lib;sfml-window.lib;sfml-system.lib;sfml-audio.lib;sfml-network.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Djarkan\Documents\C++\visual c++\SFML-2.6.1\lib</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

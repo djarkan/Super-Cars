@@ -1,0 +1,30 @@
+{
+    "bottomScreen" :
+    {
+        "text" : "ARGENT  VOITURE        MOT CAR ESS PNE\n                       ",
+        "carModel" :
+        [
+            "1.6 Taraco Neo",
+            "1.9 Taraco Neo",
+            "2.3 Vaug Inter",
+            "3.0 Vaug Inter",
+            "5.0 Retron Par",
+            "6.5 Retron Par",
+            "8.0 Retron Par"
+        ],
+        "carUsury" :
+        {
+            "engine" : "MOT",
+            "tyres" : "PNE",
+            "body" : "CAR",
+            "fuel" : "ESS"
+        },
+        "labels" :
+        {
+            "cash" : "ARGENT",
+            "car" : "VOITURE"
+        },
+        "currency" : "€"
+    }
+}
+

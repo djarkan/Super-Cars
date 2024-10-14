@@ -1,0 +1,1035 @@
+{
+    "office" :
+    {       // 38 char max per line
+        "negociate" :
+        [       // 97 bad
+            {
+                "proposition" : "I want something fast.... ",
+                "mood" : 2,
+                "answer" : "Try a spaceship to the moon, leaving \nnow from somewhere not in my \noffice.... Got the hint yet. OUT!"
+            },
+            {
+                "proposition" : "I'm afraid I left my wallet at home.",
+                "mood" : 2,
+                "answer" : "Then go home and get it, \nscatterbrain...."
+            },
+            {
+                "proposition" : "No way, creature-features.",
+                "mood" : 3,
+                "answer" : "I don't have to take these insults. \nJust get out, you childish idiot."
+            },
+            {
+                "proposition" : "Are there any extras included ? ",
+                "mood" : 3,
+                "answer" : "What do you want ? The shirt off my \nback ? I'll teach you not to be so \ngreedy ! Get out and don't come \nback !!!!"
+            },
+            {
+                "proposition" : "Are you a Justin Bieber fan ? ",
+                "mood" : 3,
+                "answer" : "8 out of 10 yankies prefer XXXXX. So \ndo I. Get out, and never mention that \nname in my presence again."
+            },
+            {
+                "proposition" : "Hi-ya matey, what's happening ? ",
+                "mood" : 2,
+                "answer" : "Wellll.... Mr Boss-guy is throwing the \nhip ultra-cool racing driver out of \nhis ‘digs' coz ‘e don't like' is \nattitude."
+            },
+            {
+                "proposition" : "I won't pay that ! ",
+                "mood" : 2,
+                "answer" : "No problem. No new car !!!! \nGet out !"
+            },
+            {
+                "proposition" : "I used to know your father.... ",
+                "mood" : 3,
+                "answer" : "Did you ? Then you can forget buying a \ncar from me. We're not not exactly on \nspeaking terms...."
+            },
+            {
+                "proposition" : "I just can't decide. ",
+                "mood" : 2,
+                "answer" : "Well I can. Get out."
+            },
+            {
+                "proposition" : "Have you got the time ? ",
+                "mood" : 2,
+                "answer" : "Not to mess around with small-talkers. \nGoodbye !"
+            },
+            {
+                "proposition" : "Pigface!",
+                "mood" : 3,
+                "answer" : "OUT !"
+            },
+            {
+                "proposition" : "I drink a guiness ! ",
+                "mood" : 2,
+                "answer" : "What do you want, a medal ? Go back \nto the pub !"
+            },
+            {
+                "proposition" : "I don't need this hassle.... ",
+                "mood" : 2,
+                "answer" : "Then go elsewhere !!!!"
+            },
+            {
+                "proposition" : "Heads or tails ? ",
+                "mood" : 2,
+                "answer" : "heads you lose. Out !"
+            },
+            {
+                "proposition" : "I could murder a bacon butty ! ",
+                "mood" : 2,
+                "answer" : "Euuuuuchh ! How can you eat meat ???? \nGet out of my office now, you animal."
+            },
+            {
+                "proposition" : "That's a good one ! ",
+                "mood" : 2,
+                "answer" : "ho ho ho. Ho ho ho indeed. Very \nboring. Please leave before I fall \nasleep."
+            },
+            {
+                "proposition" : "I'd get a better deal from Al Capone!  ",
+                "mood" : 3,
+                "answer" : "Well go and see him and don't bother me \nthen, chile-chops."
+            },
+            {
+                "proposition" : "Parlez-vous français ?",
+                "mood" : 3,
+                "answer" : "Non. Je ne comprends pas. \nAllez vous en !"
+            },
+            {
+                "proposition" : "Are you going to sell me a car ? ",
+                "mood" : 2,
+                "answer" : "As the famous philosopher, Bo-Wo-Dimly \nonce said.... ‘No'. Bye."
+            },
+            {
+                "proposition" : "Do I look stupid ? ",
+                "mood" : 2,
+                "answer" : "Do you really want me to answer that \none ???? Just go away, I ain't \nselling...."
+            },
+            {
+                "proposition" : "I've rather drink a cod-liver-oil. ",
+                "mood" : 2,
+                "answer" : "OK. Then, drink cod liver oil. Just \ndon't come back here complaining...."
+            },
+            {
+                "proposition" : "You're asking for a bunch of fives.... ",
+                "mood" : 2,
+                "answer" : "Don't threaten me.... Get out."
+            },
+            {
+                "proposition" : "Hey, bug-brains, Cut the price some ! ",
+                "mood" : 3,
+                "answer" : "If there's bugs in my brain, you \nbetter get out before you catch \nsome of them !"
+            },
+            {
+                "proposition" : "I'm only a poor racing driver.... ",
+                "mood" : 2,
+                "answer" : "Win some more races with your old \ncar first, then maybe you'll be able \nto afford a new one. Till then, \nget out!!!!"
+            },
+            {
+                "proposition" : "Not in a month of Sundays.... ",
+                "mood" : 2,
+                "answer" : "Alright, in that case there's nothing \nmore to say, exept ‘Goodbye'...."
+            },
+            {
+                "proposition" : "Are the ball-joints safe ? ",
+                "mood" : 2,
+                "answer" : "Of course they are ! All my cars are \nsafe ! I don't like your tone of \nvoice ! Get out !!!!"
+            },
+            {
+                "proposition" : "Get to the point ! ",
+                "mood" : 3,
+                "answer" : "GET OUT OF MY OFFICE BEFORE THE \nSEARING WINDS OF INFINITY SCOCH THY \nWORTHLESS CARCASS."
+            },
+            {
+                "proposition" : "Would you take 100€ less.... ",
+                "mood" : 2,
+                "answer" : "What are you trying to do with me ? \nMy last offer was the lowest I could \ngo. No deal. Bye."
+            },
+            {
+                "proposition" : "Howdy, I'm an American tourist.... ",
+                "mood" : 2,
+                "answer" : "Wanna buy Tower Bridge ? Only \n1000 dollars. A bargain. Let's go \noutside and talk about it. You \nfirst."
+            },
+            {
+                "proposition" : "I hope you have a nice day.... ",
+                "mood" : 2,
+                "answer" : "I HOPE YOU GET RUN OVER BY A BUS. \nGET OUT THIS INSTANT"
+            },
+            {
+                "proposition" : "HOW MUCH ???? ",
+                "mood" : 3,
+                "answer" : "DON'T SHOUT AT ME !!!! OUT !"
+            },
+            {
+                "proposition" : "Hey hey hey, it's YogiBear.... ",
+                "mood" : 2,
+                "answer" : "A bear ! In my office ! Quick. \nEvacuate the building.... After you."
+            },
+            {
+                "proposition" : "I'm in a bit of a hurry.... ",
+                "mood" : 2,
+                "answer" : "Well don't let me keep you. See you \nwhen you've a little more time. \nBuying a car isn't something that \nyou should rush into."
+            },
+            {
+                "proposition" : "Are you Sagittarius ? ",
+                "mood" : 2,
+                "answer" : "No. I'm a car salesman. Astrologers \nnext door. Goodbye."
+            },
+            {
+                "proposition" : "I'm a fan of Cardi B.... ",
+                "mood" : 3,
+                "answer" : "Aaaaaaaaaaarrrrrrgggggghhhh. \nShe can't sing. She can't dance. She \nlooks awful. She would go far.... \nThe moon would do. Get out and \nimprove your music taste."
+            },
+            {
+                "proposition" : "Never. No way. Uh Uh. Not for dada. ",
+                "mood" : 2,
+                "answer" : "OK Mr. Negative. Good byee."
+            },
+            {
+                "proposition" : "What's up doc ? ",
+                "mood" : 2,
+                "answer" : "Out ! I don't deal with rabbits...."
+            },
+            {
+                "proposition" : "This is getting boring.... ",
+                "mood" : 2,
+                "answer" : "Quite right. Au revoir."
+            },
+            {
+                "proposition" : "Let's sort this out once and for all. ",
+                "mood" : 3,
+                "answer" : "Sure ! Get out ! Pretty well sorted \n if you ask me !"
+            },
+            {
+                "proposition" : "There's something funny going on. Is there.... ",
+                "mood" : 2,
+                "answer" : "Well, we'd better get out of here. \nYou first. Bye, don't come back...."
+            },
+            {
+                "proposition" : "Hmmm, I'd like to think about it ! ",
+                "mood" : 2,
+                "answer" : "Well think about it outside, cause \nI haven't got the time to waste."
+            },
+            {
+                "proposition" : "Stop being silly, dog-breath.",
+                "mood" : 3,
+                "answer" : "Dog-breath !!!! Get out of here \nor I'll bite yer legs...."
+            },
+            {
+                "proposition" : "How fast does it go ? ",
+                "mood" : 2,
+                "answer" : "Don't ask me. Look on the specs \nscreens ! Trough the door, second right and a \ncouple of clicks !"
+            },
+            {
+                "proposition" : "I'm a politician.... ",
+                "mood" : 2,
+                "answer" : "Ho ho ho indeed. Very boring. \nPlease leave before I fall asleep."
+            },
+            {
+                "proposition" : "Aaah. I was hoping to pay a bit less. ",
+                "mood" : 2,
+                "answer" : "That's just to bad. Goodbye."
+            },
+            {
+                "proposition" : "Dingbat WombatKick a Kangaroo.... ",
+                "mood" : 3,
+                "answer" : "I'd repport you to the RSPCA. \nGet ou of my office !"
+            },
+            {
+                "proposition" : "I'll give you half of that ! ",
+                "mood" : 2,
+                "answer" : "That would probably pay for the \npaint-job ! You really shouldn't be \nsuch a misery. Time to leave.... \nGoodbye."
+            },
+            {
+                "proposition" : "Come on Guvnor, give me a break. ",
+                "mood" : 3,
+                "answer" : "Don't you ever call me ‘Guvnor' again. \nLeave my office immediately...."
+            },
+            {
+                "proposition" : "Are the Headlights bright ? ",
+                "mood" : 2,
+                "answer" : "Probably a lot brighter than you ! \nI've had enough of this silly \nconversation . Get out !"
+            },
+            {
+                "proposition" : "Can I put my car in part exchange ? ",
+                "mood" : 2,
+                "answer" : "You are doing that, you twit. Stop \nwasting my time. Get out."
+            },
+            {
+                "proposition" : "*** *** ***** **** *** *** ! ",
+                "mood" : 3,
+                "answer" : "! *** *** ***** **** *** *** yourself ! \nGet out of my office and wash your \nmouth out with soap."
+            },
+            {
+                "proposition" : "How about a few drinks at the pub ? ",
+                "mood" : 2,
+                "answer" : "? No way.... You're driving.... I'm not \nhaving you caught over the limit in \none of my cars. Get out...."
+            },
+            {
+                "proposition" : "C'Mon man, gimme a break....",
+                "mood" : 2,
+                "answer" : "If you use any more silly sayings like \nthat I'll break something alright. \nLeave my office, IMMEDIATELY...."
+            },
+            {
+                "proposition" : "Don't make me laugh. ",
+                "mood" : 3,
+                "answer" : "This should wipe the smile off your \nface. LEAVE MY OFFICE IMMEDIATELY !"
+            },
+            {
+                "proposition" : "Can I pay in installments ? ",
+                "mood" : 2,
+                "answer" : "No. Get out."
+            },
+            {
+                "proposition" : "I could get to dislike you, you know. ",
+                "mood" : 2,
+                "answer" : "Well you better get out of here \nbefore you do get to dislike me, \nhadn't you !"
+            },
+            {
+                "proposition" : "Hey sleazebag, that's not cool. ",
+                "mood" : 3,
+                "answer" : "Sleazebag, eh. GET LOST, GREEP !"
+            },
+            {
+                "proposition" : "Hey man, you're stupid ! ",
+                "mood" : 2,
+                "answer" : "Sticks and stones will break my \nbones.... Get out !"
+            },
+            {
+                "proposition" : "I want something cheap....",
+                "mood" : 3,
+                "answer" : "How about a Skoda patent skip ? \nUnfortunately I don't sell them.... \nBut I know a man that does.... \nHe went that-a-way.... Byee."
+            },
+            {
+                "proposition" : "I'm not really sure I need this car. ",
+                "mood" : 2,
+                "answer" : "Well if you don't need it, then \nyou're wasting my time. Get out !"
+            },
+            {
+                "proposition" : "Would you like a banana ? ",
+                "mood" : 3,
+                "answer" : "Do I look like a monkey ???? I think \nyou better get out before I get really \nangry...."
+            },
+            {
+                "proposition" : "Ooga Booga Awalamagunga.... ",
+                "mood" : 2,
+                "answer" : "Sorry, I don't sell stone chariots \nwith squire wheels. Come back some \nother time, Cavey...."
+            },
+            {
+                "proposition" : "Grovel grovel.... Slime slime.... ",
+                "mood" : 2,
+                "answer" : "I hate crawlers.... Get out...."
+            },
+            {
+                "proposition" : "No way Jose....",
+                "mood" : 3,
+                "answer" : "Diegos Maradonas Santianas Hanballas. \nLeave my office this instant."
+            },
+            {
+                "proposition" : "Whats the upholstery like ? ",
+                "mood" : 1,
+                "answer" : "Oh, the feel of the wind in its fibres, \na good brush every other week and no \nidiots like you in its owner's office. \nOut !"
+            },
+            {
+                "proposition" : "May I smoke my pipe ? ",
+                "mood" : 3,
+                "answer" : "Sure. Out the back with all other \nlower life-forms...."
+            },
+            {
+                "proposition" : "I want something classy.... ",
+                "mood" : 2,
+                "answer" : "Try a diner jacket.... Oh and by the \nway, shut the door on your way out !"
+            },
+            {
+                "proposition" : "I'm really an income tax collector. ",
+                "mood" : 2,
+                "answer" : "I'm really a traffic warden, and your \nold car is illegally parked outside. \nI suggest you get out and move it \nbefore I tow it away...."
+            },
+            {
+                "proposition" : "Your cars are rubbish ! ",
+                "mood" : 2,
+                "answer" : "Then you won't want one, will you. \nOUT !"
+            },
+            {
+                "proposition" : "can't you cut the price more ? ",
+                "mood" : 2,
+                "answer" : "No. I've got to support my wife, six \nkids, four cats, seventeen goldfish, \nthree canaries, and Bilbo, my dog. \nSo get out !"
+            },
+            {
+                "proposition" : "I hate car salesmen ! ",
+                "mood" : 1,
+                "answer" : "Don't look at me, I'm only the \ncleaner…. Byee."
+            },
+            {
+                "proposition" : "On yer bike, matey. ",
+                "mood" : 2,
+                "answer" : "You'll be riding a bike if you keep up \nthis cheek. Get out of my office, \nNOW !"
+            },
+            {
+                "proposition" : "Please don't sell me a car.... ",
+                "mood" : 1,
+                "answer" : "Uhhh, OK. How does ‘GO AWAY. I'M NOT \nGOING TO SELL YOU A CAR' sound ? OK ? \nGood. Get out, timewaster."
+            },
+            {
+                "proposition" : "You look like someone called Steve ! ",
+                "mood" : 2,
+                "answer" : "Errrr. Hmmmm. You must be mistaken. \nTry looking for him outside !"
+            },
+            {
+                "proposition" : "Phoooooo.... It is a lot of money. ",
+                "mood" : 2,
+                "answer" : "You didn't expect to buy a brand new \ncar and still get change from a fever, \ndid you ? Come back when you feel you \ncan bear to part with your money."
+            },
+            {
+                "proposition" : "My brother is seven feet two tall !  ",
+                "mood" : 2,
+                "answer" : "My big sister is eight foot four ! \nYou won't intimidate me with idle \nthreats. Get out...."
+            },
+            {
+                "proposition" : "Do you take cheques ? ",
+                "mood" : 1,
+                "answer" : "Ho ho ho. Please leave before I \ncollapse from laughter...."
+            },
+            {
+                "proposition" : "Uhhh.... Errrr… Ahhh.... ",
+                "mood" : 2,
+                "answer" : "Indecisiveness really gets on my \nnerves. Goodbye !"
+            },
+            {
+                "proposition" : "What a big office you've got !  ",
+                "mood" : 2,
+                "answer" : "All the better to throw people \nout of...."
+            },
+            {
+                "proposition" : "I absolutely refuse to pay. ",
+                "mood" : 2,
+                "answer" : "It doesn't bother me.... Close the \ndoor on your way out."
+            },
+            {
+                "proposition" : "Ever been had ? ",
+                "mood" : 2,
+                "answer" : "No, Mr Vicious. I deal firmly with \nbad customers. Goodbye"
+            },
+            {
+                "proposition" : "I'm a reporter of the SUN.",
+                "mood" : 2,
+                "answer" : "Well I eat hamsters too, so you \nbetter watch out. Leave my office at \nonce you bilge-rat...."
+            },
+            {
+                "proposition" : "American Express ???? ",
+                "mood" : 2,
+                "answer" : "???? I don't like plastic, It's not \nbio-degradable. You can forget about \nyour new car, I ain't selling you one."
+            },
+            {
+                "proposition" : "You look like a shifty character. ",
+                "mood" : 2,
+                "answer" : "You look like someone who is rather \nannoyed at being thrown out of a car \nsalesman's office for being \ninsulting...."
+            },
+            {
+                "proposition" : "Barclaycard ?",
+                "mood" : 3,
+                "answer" : "Drop dead !"
+            },
+            {
+                "proposition" : "Not in a million years ! ",
+                "mood" : 2,
+                "answer" : "OK. Then obviously don't have anything \nto talk about. Goodbye...."
+            },
+            {
+                "proposition" : "Not a chance, fungus-fangs.... ",
+                "mood" : 3,
+                "answer" : "There's nothing wrong with my dental \nhygiene, skunk-breath. Goodbye \nand good reddance."
+            },
+            {
+                "proposition" : "I ain't got that much.... ",
+                "mood" : 2,
+                "answer" : "Though then. Goodbye."
+            },
+            {
+                "proposition" : "Know any good jokes ? ",
+                "mood" : 2,
+                "answer" : "Yeah, there was a racing driver trying \nto buy a car, and the salesman said \n‘Not on your life. Get out !'"
+            },
+            {
+                "proposition" : "Would you take 5000?€ ",
+                "mood" : 2,
+                "answer" : "Don't be silly. Come back when you've \nfound your grip on reality...."
+            },
+            {
+                "proposition" : "Ah, come on, I'm not that rich. ",
+                "mood" : 2,
+                "answer" : "Yes you are ! Get out of my office. \nyou mean little rat...."
+            },
+            {
+                "proposition" : "Aren't you Ronald Reagan ? ",
+                "mood" : 2,
+                "answer" : "No. Last time I heard of him he \nwas reading the news.... Maybe you'll \nfind him somewhere else, but not here. \nGoodbye."
+            },
+            {
+                "proposition" : "Can't we hurry this up ?",
+                "mood" : 2,
+                "answer" : "Sure. You leave now, and I can go\nhome. Bye Bye."
+            },
+            {
+                "proposition" : "I should report you to the T.S.A.",
+                "mood" : 2,
+                "answer" : "Fine. Shut the door on your way\nout…."
+            },
+            {
+                "proposition" : "Is your name Arthur Daley ?",
+                "mood" : 3,
+                "answer" : "What. He's a con-artist… How\ndare you. Get out, Now."
+            },
+            {
+                "proposition" : "How old are you ?",
+                "mood" : 3,
+                "answer" : "Don't ask personal questions. Just\nget out of my office you nosey little \nswamp-dragon."
+            },
+            {
+                "proposition" : "Oh, I say, That's not very spiffing.",
+                "mood" : 3,
+                "answer" : "Just get out of my office, yuppie !"
+            },
+
+
+
+
+
+            {       // 55 good price is lowered
+                "proposition" : "Hey, I am paying cash, you know. ",
+                "mood" : 1,
+                "answer" : "Ok, for cash, I'll knock the VAT off. \nYou can have it for PRICE."
+            },
+            {
+                "proposition" : "Would you like a banana ?",
+                "mood" : 1,
+                "answer" : "Ooook ! Thanks a lot, for your \nkindness, I'll cut the asking price \nto PRICE."
+            },
+            {
+                "proposition" : "I COULD MURDER A CURRY !",
+                "mood" : 1,
+                "answer" : "Great idea. I know a little restaurant \ncalled the Katmandu. But first let's \nsell you a car.... How about PRICE."
+            },
+            {
+                "proposition" : "Is your name Arthur Daley ? ",
+                "mood" : 1,
+                "answer" : "hey.... Mind-er what you say.... But \nseeing as how he's such a gent you can \nhave the car for PRICE."
+            },
+            {
+                "proposition" : "Hmmm. I did want some extras also.",
+                "mood" : 1,
+                "answer" : "OK. That case I'll knok some off \nthe price so you can afford some. \nIs PRICE fair to you ?"
+            },
+            {
+                "proposition" : "I'd need a second mortage....",
+                "mood" : 1,
+                "answer" : "Well, we can't have that, can we. \nI'll let you have it for a mere \nPRICE."
+            },
+            {
+                "proposition" : "I ought to knock your light out !",
+                "mood" : 1,
+                "answer" : "Oh anything, but don't damage my cars. \nI'll reduce the price to PRICE."
+            },
+            {
+                "proposition" : "Is there a doctor in the fish ?",
+                "mood" : 1,
+                "answer" : "Si baroni. And he only wants PRICE \nfor his car...."
+            },
+            {
+                "proposition" : "won't you take less....  ",
+                "mood" : 1,
+                "answer" : "Sure yopu only have to ask.... \nPRICE."
+            },
+            {
+                "proposition" : "Does it run on nuclear power ?",
+                "mood" : 1,
+                "answer" : "No, This is a nuclear free zone ! \nTell you what ! I'll let you have it \nat a knock-down price of PRICE."
+            },
+            {
+                "proposition" : "What is the air speed of a swallow ? ",
+                "mood" : 1,
+                "answer" : "African or European ???? For a fellow \nPython fan I'll let you have the car \nfor PRICE, and a funny walk...."
+            },
+            {
+                "proposition" : "That's a disgusting suit.... ",
+                "mood" : 1,
+                "answer" : "Yeah, I know it is but it comes with \nthe job unfortunately. Let's call the \nprice PRICE for someone with decent \ndress sense."
+            },
+            {
+                "proposition" : "I've got a garage. ",
+                "mood" : 1,
+                "answer" : "Good. I like my cars to go to a good \nhome. Let's say PRICE for a \nconcerned customer."
+            },
+            {
+                "proposition" : "I think it's started to rain.",
+                "mood" : 1,
+                "answer" : "Oh no, my cars are outside and I've \njust waxed them. Tell you what, how \nabout a cut-price deal of PRICE"
+            },
+            {
+                "proposition" : "You know, you ain't half mean ! ",
+                "mood" : 1,
+                "answer" : "I have to be to be a car dealer. \nLook, I'll do you a deal. Only PRICE."
+            },
+            {
+                "proposition" : "Is it fitted with a CAT ?",
+                "mood" : 1,
+                "answer" : "Yeah, one of those furry ones you \nstick to the back windscreen witch \nblocks your view ! Let's say PRICE."
+            },
+            {
+                "proposition" : "I should report you to the T.S.A.",
+                "mood" : 1,
+                "answer" : "Oh please don't do that.... \nI'll cut the price to PRICE."
+            },
+            {
+                "proposition" : "What colour socks are you wearing ? ",
+                "mood" : 1,
+                "answer" : "They're a smoothing shade of green. \nThat makes me feel better, so I'll \ncut the price to PRICE."
+            },
+            {
+                "proposition" : "Don't make me laugh. ",
+                "mood" : 1,
+                "answer" : "I wasn't trying to make you laugh.... \nMaybe the price-tag will bring a \nbetter smile to your face. PRICE."
+            },
+            {
+                "proposition" : "Are you taking me for a sucker ?  ",
+                "mood" : 1,
+                "answer" : "No, not at all.... As a goodwill \ngesture I'll only charge you PRICE."
+            },
+            {
+                "proposition" : "How's the sub-frame ? ",
+                "mood" : 1,
+                "answer" : "Well it's been in hospital recently to \nhave a toe nail removed, but otherwi.... \nSorry, just my little joke. It's fine. \nTell you what, you can have the car \nfor PRICE."
+            },
+            {
+                "proposition" : "Does the imredefluidulator work ? ",
+                "mood" : 1,
+                "answer" : "The Wha.... Err, oh yes… I think so.... \nSince you seem to know so much about \ncars, I'll let you have it for a knock \ndown \nprice of PRICE."
+            },
+            {
+                "proposition" : "Go ahead, punk, make my day. ",
+                "mood" : 1,
+                "answer" : "OK, I err know what you mean, arr.... \nIs PRICE better ?"
+            },
+            {
+                "proposition" : "That's excessive!",
+                "mood" : 1,
+                "answer" : "Of course it is, but PRICE isn't."
+            },
+            {
+                "proposition" : "I can't really find that much....",
+                "mood" : 1,
+                "answer" : "Well how about PRICE."
+            },
+            {
+                "proposition" : "Are you a scruffy piece of string ?",
+                "mood" : 1,
+                "answer" : "No, I'm a frayed knot.... Put it \nthere, what a double act.... Tell you \nwhat, you can have the car for PRICE."
+            },
+            {
+                "proposition" : "You've got moths in your wallet !",
+                "mood" : 1,
+                "answer" : "Sorry, I didn't realise I was speaking \nto an animal lover. I'll make you a \nspecial deal of PRICE."
+            },
+            {
+                "proposition" : "Oh, I say, That's not very spiffing. ",
+                "mood" : 1,
+                "answer" : "OK yar.... How about selling a chunk \nof Daddy's estate to pay a piffing \nPRICE. then ?"
+            },
+            {
+                "proposition" : "I've got a cat named Garfield. ",
+                "mood" : 1,
+                "answer" : "Know what you mean, Jon, Black an \nOrange, bit of temper, eats a lot \n???? I like cats, so we'll call it \nPRICE."
+            },
+            {
+                "proposition" : "I used to know your mother.... ",
+                "mood" : 1,
+                "answer" : "Good old ma. Seeing as how you're a \nfriend of the family, you can have \nit for PRICE."
+            },
+            {
+                "proposition" : "Is the car insured ? ",
+                "mood" : 1,
+                "answer" : "Would you insure a car that was \nprobably going to get smashed to bits \nby a maniac driver in a car rally ? \nLet's say PRICE for someone with \na sense of humour."
+            },
+            {
+                "proposition" : "HOW MUCH ???? ",
+                "mood" : 1,
+                "answer" : "Errr, PRICE.    ????????????"
+            },
+            {
+                "proposition" : "Make me a better deal than that ! ",
+                "mood" : 1,
+                "answer" : "OK. I admire someone who is straight \nwith me. PRICE"
+            },
+            {
+                "proposition" : "I can'shell out that much. ",
+                "mood" : 1,
+                "answer" : "Then you certainly couldn't afford to \n‘shell out' PRICE. But, if you want \nthe car, you'll have to !"
+            },
+            {
+                "proposition" : "This parrot is dead.... ",
+                "mood" : 1,
+                "answer" : "And I'm a lumberjack.... OK. This is \nit. At once in a lifetime, never to be \nrepeated, special offer, cheap-rate \ndeal. A mere, trifling, eensy-weensy \nPRICE"
+            },
+            {
+                "proposition" : "How about a round of golf ?",
+                "mood" : 1,
+                "answer" : "Ah, A golfer. OK. Give me just PRICE \nfor the car."
+            },
+            {
+                "proposition" : "That's about as fair as Snow White ! ",
+                "mood" : 1,
+                "answer" : "Ha ha, a comedian. I like you. \nTry this one - PRICE. "
+            },
+            {
+                "proposition" : "Does the car use unleaded ? ",
+                "mood" : 1,
+                "answer" : "Sure it does ! And since you are \nobviously environementally conscious, \nI'll drop the price a bit ! Let's say \nPRICE for being green...."
+            },
+            {
+                "proposition" : "Too much ! ",
+                "mood" : 1,
+                "answer" : "Hmmm yeah, I assume it is really.... \nHow about PRICE."
+            },
+            {
+                "proposition" : "Can't we compromise ? ",
+                "mood" : 1,
+                "answer" : "Of course ! How about PRICE."
+            },
+            {
+                "proposition" : "Is that a wig you're wearing ? ",
+                "mood" : 1,
+                "answer" : "Uh, OK. Your're gonne like this, \nnot a lot, but you'll like it $PRICE."
+            },
+            {
+                "proposition" : "How old are you ? ",
+                "mood" : 1,
+                "answer" : "Errr.... Let's change the subject. \nHow about if I cut the price of your \nnew car to PRICE."
+            },
+            {
+                "proposition" : "Does it come with guarantee ? ",
+                "mood" : 1,
+                "answer" : "Errr. No. But to make up for it, \nI'm willing to knock down the price \nto a staggering PRICE."
+            },
+            {
+                "proposition" : "I've been driving my car.... ",
+                "mood" : 1,
+                "answer" : "What a embarassment. I’m your Baggy \nTrousers as well. Never mind, come to \nOur House on the Wings Of A Dove. \nEnough of this madness, let’s say \nPRICE."
+            },
+            {
+                "proposition" : "Has the car got rust ?  ",
+                "mood" : 1,
+                "answer" : "All the cars do have ! \nI'll cut the price to take the rust \ninto concideration? Let's say, \nerrr PRICE."
+            },
+            {
+                "proposition" : "Come on, We're both businessmen. ",
+                "mood" : 1,
+                "answer" : "For a fellow entrepreneur, \nPRICE. OK ?"
+            },
+            {
+                "proposition" : "Could you reduce the price, please. ",
+                "mood" : 1,
+                "answer" : "Of course, how about PRICE."
+            },
+            {
+                "proposition" : "What are you trying to take me for ? ",
+                "mood" : 1,
+                "answer" : "I ain't trying to take you for \nanything. Sorry. How about PRICE"
+            },
+            {
+                "proposition" : "Don't be draft, frogface.",
+                "mood" : 1,
+                "answer" : "Oh Come on, I'm not that ugly. \nTell you what, I'll make you a special \ndeal of PRICE."
+            },
+            {
+                "proposition" : "I'm a lumberjack! ",
+                "mood" : 1,
+                "answer" : "You mean you wear women's clothing \nand you hang around in bars ? \nErrr, yesssss. Shall we say PRICE."
+            },
+            {
+                "proposition" : "That's a fair profit margin. ",
+                "mood" : 1,
+                "answer" : "Not really, but if you're unsatisfied, \nthen I'll let you have it for PRICE."
+            },
+            {
+                "proposition" : "Are you trying to rip me off !",
+                "mood" : 1,
+                "answer" : "No, not at all, just trying to get \nthe best price I can.... \nWhat about PRICE instead ?"
+            },
+            {
+                "proposition" : "Heads or Tails ? ",
+                "mood" : 1,
+                "answer" : "Tails you win .... PRICE."
+            },
+            {
+                "proposition" : "Ullo John, got a new motor ???? ",
+                "mood" : 1,
+                "answer" : "Nice sound, Bermondsey, innit. \nOK me old china, I'll knock a \npony or two off. JUST PRICE."
+            },
+            {
+                "proposition" : "Don't push me.... ",
+                "mood" : 1,
+                "answer" : "OK. Mr Rambo , you can put \nthe machine gun away. I'll settle \nfor PRICE."
+            },
+
+
+
+
+
+
+            {       // 32 price up
+                "proposition" : "That's a good sun-tan. ",
+                "mood" : 2,
+                "answer" : "I know, I go on lots of expensive \nholidays, paid for my people like \nyou who pay extra for my cars. \nHow about PRICE. "
+            },
+            {
+                "proposition" : "I'm a politician....",
+                "mood" : 1,
+                "answer" : "Never mind, I'm sure there's a cure.\nDon't worry though, I'll only \nincrease the price to PRICE. "
+            },
+            {
+                "proposition" : "My other car's a Porsche. ",
+                "mood" : 2,
+                "answer" : "Other car ???? You must be rolling \nin it.... You can pay PRICE in \nthat case. "
+            },
+            {
+                "proposition" : "Do you mind if I smoke ? ",
+                "mood" : 2,
+                "answer" : "Yes. You can pay more for the car \nif you're willing to kill yourself \nwith cagarettes .... PRICE. "
+            },
+            {
+                "proposition" : "Help.",
+                "mood" : 2,
+                "answer" : "What do you think this is, an \nadventure game ? Try PRICE for size."
+            },
+            {
+                "proposition" : "Does it come with furry dice ? ",
+                "mood" : 2,
+                "answer" : "Sure, but it costs a little more.... \nLet's say PRICE."
+            },
+            {
+                "proposition" : "I'm absolutely rolling in dough ! ",
+                "mood" : 2,
+                "answer" : "Well, you really ought to be a baker \nthen, not a racing driver, but \nI won't hold it against you too \nmuch. The price is now PRICE.   "
+            },
+            {
+                "proposition" : "Are you making enough money ? ",
+                "mood" : 2,
+                "answer" : "No, not really. Tell you what, \nI'd make a bit more if I increase \nthe price, woudn't I ? How about \nPRICE."
+            },
+            {
+                "proposition" : "I know karate ! ",
+                "mood" : 2,
+                "answer" : "I know Charlie Chan, and he said \ncharge the cheeky little oik more \nfor the car if he gets clever so \nI will. PRICE."
+            },
+            {
+                "proposition" : "What would you say to 5€. ",
+                "mood" : 2,
+                "answer" : "What would you say to PRICE. "
+            },
+            {
+                "proposition" : "I'm a trainspotter.... ",
+                "mood" : 2,
+                "answer" : ".... Boring little twerp. PRICE. "
+            },
+            {
+                "proposition" : "Not for a rustbucket like that. ",
+                "mood" : 2,
+                "answer" : "PRICE, with the rust thrown in \nfor free, then.... "
+            },
+            {
+                "proposition" : "What do I say to reduce the price ?  ",
+                "mood" : 2,
+                "answer" : "Not that. PRICE. "
+            },
+            {
+                "proposition" : "That's unfair ! ",
+                "mood" : 1,
+                "answer" : "Give the man a cigar.... I am the \nonly salesman in town, so I can charge \nwhat I like. Like PRICE. "
+            },
+            {
+                "proposition" : "What ?",
+                "mood" : 2,
+                "answer" : "Sorry. I meant to say PRICE. \nHo ho ho. "
+            },
+            {
+                "proposition" : "I've got loadsmoney....  ",
+                "mood" : 1,
+                "answer" : "Great, you can pay more for the car \nin that case. Let's say PRICE."
+            },
+            {
+                "proposition" : "Is a radio fitted as standard ? ",
+                "mood" : 2,
+                "answer" : "No, it costs more. That brings \nthe price up to PRICE."
+            },
+            {
+                "proposition" : "What condition is the car in ? ",
+                "mood" : 2,
+                "answer" : "Brand new. So good, in fact, that \nyou can pay PRICE for it if you \nwant it !"
+            },
+            {
+                "proposition" : "Will you take a little less ? ",
+                "mood" : 2,
+                "answer" : "Nope.... But I'll take a lot more \ninstead, in fact, to be precise, \nPRICE."
+            },
+            {
+                "proposition" : "Does it have a petrol tank ? ",
+                "mood" : 2,
+                "answer" : "Of course it's got petrol, and stop \ncalling me tank.... Sorry, no more \njokes. PRICE."
+            },
+            {
+                "proposition" : "That's good deal ! ",
+                "mood" : 2,
+                "answer" : "Yeah it was. You should have taken \nit ! Now it'll cost you PRICE. "
+            },
+            {
+                "proposition" : "Can I raise a loan ? ",
+                "mood" : 2,
+                "answer" : "No, but I can raise the price. \nPRICE."
+            },
+            {
+                "proposition" : "I'll give you £100.  ",
+                "mood" : 2,
+                "answer" : "I'll give you a black-eye !!!! \nOr a bill for PRICE if you still \nwant to purchase this new set of \nwheels."
+            },
+            {
+                "proposition" : "Hey man, I dig the shades.... ",
+                "mood" : 2,
+                "answer" : "Why don't you speak properly ? \nIf you want the car now it's going to \ncost you PRICE."
+            },
+            {
+                "proposition" : "Whinge whinge whinge.... ",
+                "mood" : 2,
+                "answer" : "Don't come moaning to me, I'll \nincrease the price, to, let's \nsay PRICE. "
+            },
+            {
+                "proposition" : "I don't suppose you'd give me the car.",
+                "mood" : 2,
+                "answer" : "Dead right, turkey.... \nLet's say PRICE for your cheek ! "
+            },
+            {
+                "proposition" : "How about 50€ ? ",
+                "mood" : 2,
+                "answer" : "How about PRICE "
+            },
+            {
+                "proposition" : "I used to be a werewolf..... ",
+                "mood" : 2,
+                "answer" : "But you're alright now-ooooooooo. \nYes very funny. Any more quips \nlike that and I'll throw you out. \nPay me PRICE if you want the car.  "
+            },
+            {
+                "proposition" : "Please increase the price. ",
+                "mood" : 1,
+                "answer" : "Sure, anything you say. \nWhat about PRICE, sucker? "
+            },
+            {
+                "proposition" : "Are your cars ozone-Friendly ?  ",
+                "mood" : 2,
+                "answer" : "Yes, but they're a bit more expensive \nbecause of it. Yours will cost \nyou PRICE."
+            },
+            {
+                "proposition" : "Yo ho ho and a bottle of rum ! ",
+                "mood" : 2,
+                "answer" : "Less of that ! I'm the pirate around \nhere. To prove it, I'm going to \ncharge you PRICE for the car."
+            },
+            {
+                "proposition" : "I could really go a pizza....",
+                "mood" : 2,
+                "answer" : "Ah well then, if you can afford a \npizza from around here, then you can \nafford to pay some more for the car. \nLet's say, hmmm.... PRICE. "
+            }
+        ],
+        "welcome" :
+        [
+                "Good day. Please come in an sit down. \nTell me, witch car do you want to \nbuy ?",
+                "Hello there, I hear you want to buy a\ncar. Witch type do you want ?\n  ",
+                "Good morning. You've come to the right \nplace to buy a new car. Witch one do \nyou want ?",
+                "Hello there, How are you ? \nI understand you want to buy a new \ncar. Witch car do you want ?",
+                "Good day to you. What can I do you for \nthen ? A car.... Witch type ?\n   ",
+                "afternoon.... What car can I sell you \nthen ....\n   ",
+                "Hi. I assume you want to buy a new set \nof wheels. What type do you want \nthen ?",
+                "You want to buy a new car !!!! I have \na wide selection in your price range. \nWitch one can I sell you ?"
+        ],
+        "cars" :
+        [
+            {
+                "model1" : "1.6l Taraco\nNeoroder",
+                "model2" : "1.6l Taraco Neoroder",
+                "sellPrice" : "30000",
+                "price" : 30000
+            },
+
+            {
+                "model1" : "1.9l Taraco\nNeoroder",
+                "model2" : "1.9l Taraco Neoroder",
+                "sellPrice" : "60000",
+                "price" : 60000
+            },
+            {
+                "model1" : "2.3l Vaug\nInterceptor",
+                "model2" : "2.3l Vaug Interceptor",
+                "sellPrice" : "90000",
+                "price" : 90000
+            },
+            {
+                "model1" : "3.0l Vaug\nInterceptor",
+                "model2" : "3.0l Vaug Interceptor",
+                "sellPrice" : "120000",
+                "price" : 120000
+            },
+            {
+                "model1" : "5.0l Retron\nParsec Turbo",
+                "model2" : "5.0l Retron Parsec Turbo",
+                "sellPrice" : "150000",
+                "price" : 150000
+            },
+            {
+                "model1" : "6.5l Retron\nParsec Turbo",
+                "model2" : "6.5l Retron Parsec Turbo",
+                "sellPrice" : "180000",
+                "price" : 180000
+            },
+            {
+                "model1" : "8.0l Retron\nParsec Turbo",
+                "model2" : "8.0l Retron Parsec Turbo",
+                "sellPrice" : "0",
+                "price" : 0
+            }
+        ],
+        "priceAnnounce" :   //38 char max per line
+        [
+                "OK. The trade-in value on your old \ncar is MONEY. Your new MODEL1 is going to cost you \nPRICE.",
+                "Alright.... I can give you MONEY \ntrade-in on your old car. Your new \nMODEL2 will cost you\nPRICE.",
+                "That's fine. I can let you have a \nMODEL2 for PRICE. \nBy he way your old rustbucket is \nworth MONEY.",
+                "OK. Your old car is worth MONEY to me. \nI have a MODEL2 for \nsale at PRICE.",
+                "Right, you can have one for PRICE. \nYou can have MONEY for your old car \nas well....",
+                "Great I have just one MODEL1 left. A snip at PRICE. \nI can let you have MONEY for your \nold car.",
+                "Right then. I can advance you MONEY \non your old car in part exchange on a \nMODEL2 , a bargain \nat PRICE.",
+                "An excellent choice. Cheap at PRICE, \nand you can have MONEY for your \nold car as well."
+        ],
+        "buy" : "OK. I'll pay PRICE for the car.",
+        "buyOrNotBuy": "OK. I'll pay PRICE for the car.\nNo. I think I don''t need that car.",
+        "coloring" : "Move your joystick left and right to\nchoose the color. Fire for validation.\n",
+        "currency" : "€",
+        "thanks" :
+        [
+                "\nAlright.... Great to be of help. Byee....",
+                "OK A deal's a deal. Good luck with\nyour new car.",
+                "OK. You've definitely got a bargain \nthere.... See you....",
+                "OK. Thanks for the business, drive \ncarefully....",
+                "I'm glad I could help you. Good luck \nin your next race....",
+                "Allright then, thanks for choosing \nmy showroom. Good luck....",
+                "I love when a deal comes together. \nGlad to be of service....",
+                "Alright, I hope you and your new \ncar are very happy together...."
+        ],
+        "notEnoughMoney" :
+        [
+                "Win some more races with your old \ncar first, then maybe you'll be able \nto afford a new one. Till then, \nget out !!!!",
+                "Right then, a deal's a dea.... Hey,\nthis money is short. Are you trying\nto cheat me .... Get out of my office\nbefore I call the police....",
+                "When I say MONEY, I mean MONEY.\nOut !!!!",
+                "No you won't, because you can't. Get\nout, now !!!!",
+                "Do I look like a charity institution ?\nLeave my property immediately.",
+                "Stop wasting my time. You can't\n afford it. I you'd better go\nbefore I get annoyed....",
+                "Sorry, bud, but you ain't got enough\ncash. If you want to try and cheat\npeople, become a car salesman, not a\nracing driver. Bye....",
+                "OK. Here are the keys to your new\nca.... Hold on a minute, this money\nis wrong. You can't afford the\ncar.... Stop wasting my time, and get\nout !",
+                "Stop messing around. You can't \naffordthe car, so don't pretend you\ncan. Leave my property\nimmediately...."
+                "Don't be silly, you haven't got an\noverdraft now. See you when you can\nafford a new car...."
+        ]
+    }
+}

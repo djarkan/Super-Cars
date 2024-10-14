@@ -1,0 +1,7 @@
+{
+    "pseudo" :
+    [
+        "PLEASE ENTER", "YOUR NAME"
+    ],
+    "error" : " Error during loading cars texture.\nPlease reinstall the game."
+}

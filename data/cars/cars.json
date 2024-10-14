@@ -1,0 +1,48 @@
+{
+    "model" :
+    [
+        {
+            "maxSpeed" : 120,
+            "maxSpeedKit" : 129,
+            "width" : 49,
+            "heigth" : 35,
+        },
+        {
+            "maxSpeed" : 127,
+            "maxSpeedKit" : 138,
+            "width" : 49,
+            "heigth" : 35,
+        },
+        {
+            "maxSpeed" : 138,
+            "maxSpeedKit" : 146,
+            "width" : 53,
+            "heigth" : 39,
+        },
+        {
+            "maxSpeed" : 144,
+            "maxSpeedKit" : 155,
+            "width" : 53,
+            "heigth" : 39,
+        },
+        {
+            "maxSpeed" : 152,
+            "maxSpeedKit" : 164,
+            "width" : 57,
+            "heigth" : 39,
+        },
+        {
+            "maxSpeed" : 164,
+            "maxSpeedKit" : 170,
+            "width" : 57,
+            "heigth" : 39,
+        },
+        {
+            "maxSpeed" : 172,
+            "maxSpeedKit" : 179,
+            "width" : 57,
+            "heigth" : 39,
+        },
+
+    ]
+}

@@ -1,0 +1,9 @@
+{
+    "pseudo" :
+    [
+        "PLEASE ENTER", "YOUR NAME"
+    ],
+    "track" : "TRACK ",
+    "message" : "Loading...",
+    "exit" : "Exit"
+}
