@@ -55,7 +55,7 @@ void Race::loadTextures(const unsigned int trackNb)
     std::string rotation{""};
     if(m_clockwiseRaceRotation) { rotation = "clock"; }
     else { rotation = "counterclock"; }
- //   m_textureContaigner.loadAsset(textures::ID::track, "graphics/tracks/races/track" + std::to_string(trackNb + 1) + ".png");
+    //m_textureContaigner.loadAsset(textures::ID::track, "graphics/tracks/races/track" + std::to_string(trackNb + 1) + ".png");
  m_textureContaigner.loadAsset(textures::ID::track, "graphics/tracks/roads/track" + std::to_string(trackNb + 1) + " up " + rotation + ".png");
     m_textureContaigner.loadAsset(textures::ID::spritesheet, "graphics/sprite_sheet/sprite_sheet.png");
     m_textureContaigner.loadAsset(textures::ID::shadows, "graphics/tracks/shadows/track" + std::to_string(trackNb + 1) + " shadows.png");
@@ -191,7 +191,8 @@ std::cout << "bottom panel updated" << std::endl;
 raceStarted = true;
     lightCountdown.play();
 //    m_audioPlayer.playSound(sounds::ID::hornCountdown, 100);
-    mylib::Timer inputsTimer(100);
+    mylib::Timer inputsTimer(33);
+    unsigned int inputsTimerCounter{ 0 };
     inputsTimer.start();
     mylib::Timer gameTimer(9);
     mylib::Timer pauseTimer(120);
@@ -206,25 +207,29 @@ std::cout << "language is : " << m_language << std::endl;
         if(raceStarted) {
             if(inputsTimer.isTimeElapsed()) {
                 inputsTimer.restart();
-                inputs.readInput(m_players.getHumanJoystick());
-                if(!pause) {                                                                                 // read player inputs
-                    while(inputs.isCommandAvailable()) {
-                        command = inputs.getInput();
-                        if(command.letter == ' ') {
-                            pause == true ? pause = false : pause = true;
+                ++inputsTimerCounter;
+                if (!pause) { driveComputerCars(); }
+                if (inputsTimerCounter == 4) {
+                    inputsTimerCounter = 0;
+                    inputs.readInput(m_players.getHumanJoystick());
+                    if (!pause) {                                                                                               // read player inputs
+                        while (inputs.isCommandAvailable()) {
+                            command = inputs.getInput();
+                            if (command.letter == ' ') {
+                                pause == true ? pause = false : pause = true;
+                            }
+                            if (command.letter == 27) { return 3; }
+                            driveHumanCar(command);                                                                             // move human car
                         }
-                        if(command.letter == 27) { return 4; }
-                        driveHumanCar(command);                                                             // move human car
                     }
-                    driveComputerCars();
-                }
-                else {
-                    while(inputs.isCommandAvailable()) {
-                        command = inputs.getInput();
-                        if(command.letter == ' ') {
-                            pause == true ? pause = false : pause = true;
+                    else {
+                        while (inputs.isCommandAvailable()) {
+                            command = inputs.getInput();
+                            if (command.letter == ' ') {
+                                pause == true ? pause = false : pause = true;
+                            }
+                            if (command.letter == 27) { return 4; }
                         }
-                        if (command.letter == 27) { return 4; }
                     }
                 }
             }
@@ -239,20 +244,20 @@ std::cout << "language is : " << m_language << std::endl;
                 checkCarOnCarCollision();
                 moveCars();
                 drawHazards();
-                checkPlayerCarNearBridge(m_trackData.getNearBridgearea());                                                  // check cars elevation
-                checkCarsInAnicheatArea();                                                             // check if cars are on a anticheat waypoint
-                for(unsigned int i = 0; i < m_players.getRacerNumber(); ++i) {                                              // draw cars at floor 0
+                checkPlayerCarNearBridge(m_trackData.getNearBridgearea());                                                      // check cars elevation
+                checkCarsInAnicheatArea();                                                                                      // check if cars are on a anticheat waypoint
+                for(unsigned int i = 0; i < m_players.getRacerNumber(); ++i) {                                                  // draw cars at floor 0
                     if(m_players.getPlayerCarElevation(i) == 0) { m_window.draw(m_players.getPlayerCar(i)); }
                 }
-                drawBridge();                                                                                               // if bridge in view draw the bridge
-                for(unsigned int i = 0; i < m_players.getRacerNumber(); ++i) {                                              // draw cars at floor 1
+                drawBridge();                                                                                                   // if bridge in view draw the bridge
+                for(unsigned int i = 0; i < m_players.getRacerNumber(); ++i) {                                                  // draw cars at floor 1
                     if(m_players.getPlayerCarElevation(i) == 1) { m_window.draw(m_players.getPlayerCar(i)); }
                 }
                 checkCarsInHazards();
-                checkCarsOnTrack();                                                                    // check if car is in a hazard
+                checkCarsOnTrack();                                                                                             // check if car is in a hazard
                 checkCarsRanking();
                 isRaceOver = checkCarsOnArrival();
-                m_window.draw(m_shadows);                                                                                   // draw frame elements
+                m_window.draw(m_shadows);                                                                                       // draw frame elements
                 m_window.draw(m_arrival);
 
                 if(!raceStarted) {
@@ -561,7 +566,7 @@ void Race::drawBridge()
             sf::FloatRect bridgebounds{m_trackData.getBridgeBounds(i)};
             if(m_collisioner.isRectangleIntersectRectangle(viewBounds, bridgebounds)) {
                 if(m_trackData.getBridgeOrientation(i) == 0) { m_bridge.setTextureRect(sf::IntRect(220, 1570, 161, 152)); }
-                else { m_bridge.setTextureRect(sf::IntRect(400, 1570, 167, 147)); }
+                else { m_bridge.setTextureRect(sf::IntRect(400, 1570, 168, 127)); }
                 m_bridge.setPosition(sf::Vector2f(bridgebounds.left, bridgebounds.top));
                 m_window.draw(m_bridge);
             }
@@ -816,8 +821,8 @@ void Race::driveComputerCars()
                                             if (carFrame >= 22 || carFrame < 9) { player->turnCar(Car::Direction::Left); }
                                             if (carFrame < 21 && carFrame >= 9) { player->turnCar(Car::Direction::Right); }
                                         }
-          //player->accelerate();
-            player->decelerate();
+            player->accelerate();
+            //player->decelerate();
         }
     }
 }
@@ -1090,8 +1095,8 @@ void Race::checkCarOnCarCollision()
                                                 slowerCar = player1;
                                             }
                                             switch (j) {
-                                            case 0:                                                                            // player1 in player2 left side
-                                            case 2:                                                                             // player1 in player2 right side
+                                            case 0:                                                                                 // player1 in player2 left side
+                                            case 2:                                                                                 // player1 in player2 right side
                                                 if (player1->getCarSpeed() + player1->getCarSideSpeed() > 1) {
                                                     if (corner == 1 || corner == 4 || corner == 7 || corner == 3 || corner == 6) {
 std::cout << "player1 front " << player1->getName() << " in player2 " << player2->getName() << " side" << std::endl;
@@ -1136,11 +1141,11 @@ std::cout << "player1 standing still " << player1->getName() << " in player2 " <
                                             case 1:                                                                             // player1 in player2 front
                                                 if (corner == 1 || corner == 4 || corner == 7 || corner == 3 || corner == 6) {
 std::cout << "player1 front " << player1->getName() << " in player2 " << player2->getName() << " front" << std::endl;
-                                                    speed = fasterCar->getCarSpeed();
                                                     if (slowerCar->getCarSpeed() > 1) { fasterCar->setCarInteraction(Car::Interaction::Pushed, slowerCar->getCarAngle(), 3, slowerCar->getCarSpeed() * 0.5f); }
-                                                    fasterCar->setCarSpeed(speed);
                                                     if (fasterCar->getCarSpeed() > 1) { slowerCar->setCarInteraction(Car::Interaction::Pushed, fasterCar->getCarAngle(), 3, fasterCar->getCarSpeed() * 0.5f); }
-                                                    fasterCar->setCarSpeed(0);
+                                                    fasterCar->setCarPosition(fasterCar->getCarOldPosition());
+                                                    slowerCar->setCarPosition(slowerCar->getCarOldPosition());
+
                                                 }
                                                 else {
 std::cout << "player1 back " << player1->getName() << " in player2 " << player2->getName() << " back" << std::endl;
@@ -1171,7 +1176,7 @@ std::cout << "speed: " << speed << std::endl;
                                                 fasterCar->setCarPosition(fasterCar->getCarOldPosition());
                                                 return;
                                             default:
-std::cout << "Unknown collision: " << j << " corner " << corner << std::endl;
+std::cout << "Unknown collision: " << j << " corner " << corner << std::endl; 
                                                 break;
 
                                             }
