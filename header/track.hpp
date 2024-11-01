@@ -56,8 +56,7 @@ class Track {
         std::vector<sf::FloatRect>                                      antiCheatWaypoints;
         std::vector<sf::FloatRect>                                      nearBridgeArea;
         unsigned int                                                    nbRankingCoords;
-        std::vector<sf::FloatRect>                                      RankingCoordsClock;
-        std::vector<sf::FloatRect>                                      RankingCoordsCounterClock;
+        std::vector<sf::FloatRect>                                      RankingCoords;
         unsigned int                                                    autoPilotNbWaypoints;
         unsigned int                                                    autoPilotWaypointRadius;
         std::array<std::vector<sf::Vector2f>, 3>                        waypointsLines;

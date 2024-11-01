@@ -11,7 +11,6 @@ Track::Track(int trackNB, bool clockwiseRaceRotation) : m_clockwiseRaceRotation{
 {
 std::cout << "loading track data." << std::endl;
     loadTrackData(trackNB);
-
 std::cout << "track data loaded." << std::endl;
 }
 
@@ -62,18 +61,11 @@ void Track::loadTrackData(const int trackNB)
         }
         nbRankingCoords = m_trackData.m_Root["track"].get("nbRankingCoords",0).asInt();
         for(unsigned int i = 0; i < nbRankingCoords; ++i) {
-            area.left = m_trackData.m_Root["track"]["racingRankingCoordsClock"]["RankingCoords"][i].get("x",0).asFloat();
-            area.top = m_trackData.m_Root["track"]["racingRankingCoordsClock"]["RankingCoords"][i].get("y",0).asFloat();
-            area.width = m_trackData.m_Root["track"]["racingRankingCoordsClock"]["RankingCoords"][i].get("w",0).asFloat();
-            area.height = m_trackData.m_Root["track"]["racingRankingCoordsClock"]["RankingCoords"][i].get("h",0).asFloat();
-            RankingCoordsClock.push_back(area);
-        }
-        for(unsigned int i = 0; i < nbRankingCoords; ++i) {
-            area.left = m_trackData.m_Root["track"]["racingRankingCoordsCounterClock"]["RankingCoords"][i].get("x",0).asFloat();
-            area.top = m_trackData.m_Root["track"]["racingRankingCoordsCounterClock"]["RankingCoords"][i].get("y",0).asFloat();
-            area.width = m_trackData.m_Root["track"]["racingRankingCoordsCounterClock"]["RankingCoords"][i].get("w",0).asFloat();
-            area.height = m_trackData.m_Root["track"]["racingRankingCoordsCounterClock"]["RankingCoords"][i].get("h",0).asFloat();
-            RankingCoordsCounterClock.push_back(area);
+            area.left = m_trackData.m_Root["track"]["racingRankingCoords"][i].get("x",0).asFloat();
+            area.top = m_trackData.m_Root["track"]["racingRankingCoords"][i].get("y",0).asFloat();
+            area.width = m_trackData.m_Root["track"]["racingRankingCoords"][i].get("w",0).asFloat();
+            area.height = m_trackData.m_Root["track"]["racingRankingCoords"][i].get("h",0).asFloat();
+            RankingCoords.push_back(area);
         }
 }
 
@@ -156,8 +148,7 @@ sf::Vector2f Track::getCountdownCoords() const
 
 const sf::FloatRect& Track::getRankingArea(const unsigned int index) const
 {
-    if(m_clockwiseRaceRotation) { return RankingCoordsClock[index]; }
-    else { return RankingCoordsCounterClock[index]; }
+    return RankingCoords[index];
 }
 
 unsigned int Track::getRankingAreaNumber() const

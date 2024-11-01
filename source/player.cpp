@@ -4,6 +4,7 @@
 #include "timer/timer.hpp"
 
 #include <SFML/Window/Mouse.hpp>
+#include <SFML/Window/Event.hpp>
 
 Player::Player() : m_playerType{ PlayerType::Computer }, m_gameDifficulty{ LevelDifficulty::Normal }, m_name{ "" }, m_money{ 5000 }, m_car(),
                     m_carInArrivalArea{false}, m_carInRankingArea{false}, m_checkedRankingAreaNumber{0}, m_startRanking{false}
@@ -83,13 +84,21 @@ void Player::setJoystickID(sf::RenderWindow& window)
         for (auto i = 0; i < sf::Joystick::Count; ++i) {
             if (sf::Joystick::isConnected(i)) { ++pluggedJoystickNumber; }
         }
+        sf::Event event;
         if (pluggedJoystickNumber == 0) {
             Message message(m_language, Message::Messages::NoJoystick);
             window.clear();
             window.draw(message);
             window.display();
-            while (!duration.isTimeElapsed())
+            while (!duration.isTimeElapsed()) {
                 sf::sleep(sf::milliseconds(10));
+                while (window.pollEvent(event)) {
+                    if (event.type == sf::Event::JoystickConnected) {
+                        ++pluggedJoystickNumber;
+                        m_joystickID = 0;
+                    }
+                }
+            }
             duration.restart();
         }
         if(pluggedJoystickNumber > 1) {

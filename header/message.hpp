@@ -12,7 +12,7 @@
 
 class Message : public sf::Drawable {
     public :
-        enum class                          Messages { Loading = 0, WonStage1, WonStage2, RaceWon, RaceLost, TyresBroken, FuelEmpty, EngineBroken, BodyBroken, NoJoystick, sevaralJoystick, loadSavedGame };
+        enum class                          Messages { Loading = 0, WonStage1, WonStage2, WonStage3, RaceWon, RaceLost, TyresBroken, FuelEmpty, EngineBroken, BodyBroken, NoJoystick, sevaralJoystick, loadSavedGame };
                                             Message(const unsigned int language, const Messages message);
         bool                                loadFont();
         void                                initBackground();

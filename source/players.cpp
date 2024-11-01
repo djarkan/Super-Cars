@@ -10,9 +10,22 @@
 #include "header/inputs.hpp"
 #include "music/music.hpp"
 
-Players::Players(sf::RenderWindow& window, unsigned int language) : m_language{ language }, m_window { window }, m_humanPlayer(Player::PlayerType::Human, "SOUT", m_language, m_window)  ////////////////////////////  REMETTRE SOUT APRES LES TESTS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Players::Players(sf::RenderWindow& window, unsigned int language) : m_language{ language }, m_window { window }, m_humanPlayer(Player::PlayerType::Human, "SOUT", m_language, m_window)
 {
-    if(!m_carsTexture.loadFromFile("graphics/cars/cars.png")) { std::cout << m_languageJson.m_Root["error"].asString() << std::endl; }
+    m_carsTexture.loadFromFile("graphics/cars/cars.png");
+    switch (m_language) {
+    case 0:
+        m_languageJson.loadJsonFile("language/english/pseudo.json");
+        break;
+    case 1:
+        m_languageJson.loadJsonFile("language/usa/pseudo.json");
+        break;
+    case 2:
+        m_languageJson.loadJsonFile("language/french/pseudo.json");
+        break;
+    default:
+        break;
+    }
 }
 
 Players::~Players()

@@ -4,9 +4,9 @@
 
 
 Car::Car() : m_body{1}, m_engine{1}, m_tyres{1}, m_fuel{1}, m_frontMissile{false}, m_rearMissile{false},m_highSpeedKit{false}, m_turboCharger{false}, m_spinAssist{false},
-m_sideArmour{ false }, m_powerSteering{ false }, m_retro{ false }, m_type{ Car::Type::Taraco_Neoroder }, m_angle{ 0 }, m_sideAngle{ 0 }, m_shiftingAngle{ 0 },  m_speed { 0 }, m_topRaceSpeed{ 0 }, 
-m_maxSpeed{ 0 }, m_sideSpeed{ 0 }, m_speedLimiter{ 1.f }, m_acceleration{ 2 }, m_elevation{ 1 }, m_carTexture{nullptr}, m_frame{0}, m_accelerationOn{false}, m_accelerationTime{0}, m_isBroken{false}, 
-m_turnIntensity{0}, m_shifting{false}, m_nearBridgeArea{false}, m_inSand{false}, m_waypointTarget{0}
+             m_sideArmour{ false }, m_powerSteering{ false }, m_retro{ false }, m_type{ Car::Type::Taraco_Neoroder }, m_angle{ 0 }, m_sideAngle{ 0 }, m_shiftingAngle{ 0 },  m_speed { 0 }, m_topRaceSpeed{ 0 }, 
+             m_maxSpeed{ 0 }, m_sideSpeed{ 0 }, m_speedLimiter{ 1.f }, m_acceleration{ 2 }, m_elevation{ 1 }, m_carTexture{nullptr}, m_frame{0}, m_accelerationOn{false}, m_accelerationTime{0}, m_isBroken{false}, 
+             m_turnIntensity{0}, m_shifting{false}, m_nearBridgeArea{false}, m_inSand{false}, m_waypointTarget{0}
 {
     m_color = 1;
     m_interaction.type = Interaction::None;
@@ -243,8 +243,8 @@ void Car::decelerate()
         else { m_sideSpeed -= 3.f + (3.f * static_cast<float>(m_retro)); }
     }
     else { m_sideSpeed = 0; }
-if (m_sideSpeed > 1.f)
-std::cout << "deceleration side speed: " << m_sideSpeed << std::endl;
+//if (m_sideSpeed > 1.f)
+//std::cout << "deceleration side speed: " << m_sideSpeed << std::endl;
 }
 
 void Car::consumeTyres()
