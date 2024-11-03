@@ -58,7 +58,7 @@ void BottomPanel::textConfiguration()
     else { money = std::to_string(m_player.getMoney()) + m_languageJson.m_Root["bottomScreen"]["currency"].asString(); }
     while(money.size() < 7) { money += ' '; }
     text.replace(39, 7, money);
-    std::string model = m_languageJson.m_Root["bottomScreen"]["carModel"][static_cast<unsigned int>(m_player.getCarType())].asString();
+    std::string model = m_languageJson.m_Root["bottomScreen"]["carModel"][static_cast<unsigned int>(m_player.getType())].asString();
     text.replace(47, 14, model);
     m_Text.setText(text);
     m_Text.setPosition(16, 4);
@@ -85,10 +85,10 @@ void BottomPanel::updateCarModel(Car::Type type)
 
 void BottomPanel::updateUsury()
 {
-    m_sprites[1]->setTextureRect(sf::IntRect(0, 150, static_cast<int>(46 * m_player.getCarEngineState()), 10));
-    m_sprites[2]->setTextureRect(sf::IntRect(0, 150, static_cast<int>(46 * m_player.getCarBodyState()), 10));
-    m_sprites[3]->setTextureRect(sf::IntRect(0, 150, static_cast<int>(46 * m_player.getCarFuelState()), 10));
-    m_sprites[4]->setTextureRect(sf::IntRect(0, 150, static_cast<int>(46 * m_player.getCarTyresState()), 10));
+    m_sprites[1]->setTextureRect(sf::IntRect(0, 150, static_cast<int>(46 * m_player.getEngineState()), 10));
+    m_sprites[2]->setTextureRect(sf::IntRect(0, 150, static_cast<int>(46 * m_player.getBodyState()), 10));
+    m_sprites[3]->setTextureRect(sf::IntRect(0, 150, static_cast<int>(46 * m_player.getFuelState()), 10));
+    m_sprites[4]->setTextureRect(sf::IntRect(0, 150, static_cast<int>(46 * m_player.getTyresState()), 10));
 }
 
 void BottomPanel::draw(sf::RenderTarget& target, sf::RenderStates states) const

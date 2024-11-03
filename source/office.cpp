@@ -109,11 +109,11 @@ void Office::buy()                                ///// 16,252   16, 268   16,28
     vendorFace.setTexture(m_textureContaigner.getAsset(textures::ID::spritesheet));
     vendorFace.setPosition(417, 6);
     Mood vendorMood{Mood::normal};
-    unsigned int currentColor{m_player.getCarColor()};
+    unsigned int currentColor{m_player.getColor()};
     mylib::Timer commandLimiter(10);
     commandLimiter.start();
     mylib::Timer scrollLimiter(350);
-    unsigned int color{m_player.getCarColor()};
+    unsigned int color{m_player.getColor()};
     int step{1};                                                                                // 1/ hello /2 choose color 3/choose car model 4/ price announce 5/ negociation until 5 lowering or raising price 6/ buy yes-no 7/ get out
     mylib::Random<int> intGenerator;
     bool chooseDialog{true};
@@ -169,7 +169,7 @@ void Office::buy()                                ///// 16,252   16, 268   16,28
                     }
                     if(m_command.action == CommandType::joystiskButtonPressed || m_command.action == CommandType::mouseLeftButtonPressed) {
                         if(m_command.coords.x >= 16 && m_command.coords.x <= 608 && m_command.coords.y >= 253 && m_command.coords.y <= 301) {
-                            if(m_player.getCarType() == Car::Type::Retron_Parsec_Turbo8 || carBought) {
+                            if(m_player.getType() == Car::Type::Retron_Parsec_Turbo8 || carBought) {
                                 m_visualSelector.setPosition(3000, 253);
                                 break;
                             }
@@ -224,7 +224,7 @@ void Office::buy()                                ///// 16,252   16, 268   16,28
                             break;
                         }
                         else {
-                            m_player.setCarColor(color);
+                            m_player.setColor(color);
                             m_player.setMoney(m_player.getMoney() - 500);
                             m_bottomPanel.updateMoney();
                             m_cashDrawerSound.play();
@@ -241,7 +241,7 @@ void Office::buy()                                ///// 16,252   16, 268   16,28
                 break;
             case 3 :                                                    // choose model to buy
                 if(chooseDialog) {
-                    carModelNumber = static_cast<unsigned int>(m_player.getCarType());
+                    carModelNumber = static_cast<unsigned int>(m_player.getType());
                     if(carModelNumber < 6) {
                         std::string text{""};
                         for(auto i = carModelNumber + 1; i < m_languageJson.m_Root["office"]["cars"].size(); ++i) {
@@ -281,7 +281,7 @@ void Office::buy()                                ///// 16,252   16, 268   16,28
                 if(chooseDialog) {
                     std::string text{""};
                     vendorMood = Mood::happy;
-                    m_player.setMoney(m_player.getMoney() + m_languageJson.m_Root["office"]["cars"][static_cast<unsigned int>(m_player.getCarType())]["price"].asInt());
+                    m_player.setMoney(m_player.getMoney() + m_languageJson.m_Root["office"]["cars"][static_cast<unsigned int>(m_player.getType())]["price"].asInt());
                     m_bottomPanel.updateMoney();
                     carPrice = 48500 + (30000 * static_cast<unsigned int>(carToBuy)) + (intGenerator.randomNumber(1, 140) * 50);
                     int rand = intGenerator.randomNumber(0, 7);
@@ -304,8 +304,8 @@ void Office::buy()                                ///// 16,252   16, 268   16,28
                         }
                     }
                     std::string oldCarValue{""};
-                    if(m_language < 2) { oldCarValue = m_languageJson.m_Root["office"]["currency"].asString() + m_languageJson.m_Root["office"]["cars"][static_cast<unsigned int>(m_player.getCarType())]["sellPrice"].asString(); }
-                    else { oldCarValue = m_languageJson.m_Root["office"]["cars"][static_cast<unsigned int>(m_player.getCarType())]["sellPrice"].asString() + m_languageJson.m_Root["office"]["currency"].asString(); }
+                    if(m_language < 2) { oldCarValue = m_languageJson.m_Root["office"]["currency"].asString() + m_languageJson.m_Root["office"]["cars"][static_cast<unsigned int>(m_player.getType())]["sellPrice"].asString(); }
+                    else { oldCarValue = m_languageJson.m_Root["office"]["cars"][static_cast<unsigned int>(m_player.getType())]["sellPrice"].asString() + m_languageJson.m_Root["office"]["currency"].asString(); }
                     pos = text.find("MONEY");
                     text.erase(pos, 5);
                     text.insert(pos, oldCarValue);
@@ -358,11 +358,11 @@ void Office::buy()                                ///// 16,252   16, 268   16,28
                             if(m_player.getMoney() >= static_cast<unsigned int>(carPrice)) {                                   // player has the money
                                 vendorMood = Mood::happy;
                                 m_player.setMoney(m_player.getMoney() - carPrice);
-                                m_player.setCarType(carToBuy);
-                                m_player.setCarBodyState(1);
-                                m_player.setCarEngineState(1);
-                                m_player.setCarTyresState(1);
-                                m_player.setCarFuelState(1);
+                                m_player.setType(carToBuy);
+                                m_player.setBodyState(1);
+                                m_player.setEngineState(1);
+                                m_player.setTyresState(1);
+                                m_player.setFuelState(1);
                                 m_bottomPanel.updateUsury();
                                 m_bottomPanel.textConfiguration();
                                 step = 8;
@@ -490,11 +490,11 @@ void Office::buy()                                ///// 16,252   16, 268   16,28
                          if(m_player.getMoney() >= static_cast<unsigned int>(carPrice)) {                                   // player has the money
                                 vendorMood = Mood::happy;
                                 m_player.setMoney(m_player.getMoney() - carPrice);
-                                m_player.setCarType(carToBuy);
-                                m_player.setCarBodyState(1);
-                                m_player.setCarEngineState(1);
-                                m_player.setCarTyresState(1);
-                                m_player.setCarFuelState(1);
+                                m_player.setType(carToBuy);
+                                m_player.setBodyState(1);
+                                m_player.setEngineState(1);
+                                m_player.setTyresState(1);
+                                m_player.setFuelState(1);
                                 m_bottomPanel.updateUsury();
                                 m_bottomPanel.textConfiguration();
                                 step = 8;
@@ -538,7 +538,7 @@ void Office::buy()                                ///// 16,252   16, 268   16,28
         }
         if((m_command.action == CommandType::joystiskButtonPressed || m_command.action == CommandType::mouseLeftButtonPressed) && m_door.isPressed(m_command.coords)) {
             inOffice = false;
-            if(m_player.getCarType() != carToBuy) {                                                 // player doesn't steal money whey quiting the office
+            if(m_player.getType() != carToBuy) {                                                 // player doesn't steal money whey quiting the office
                 m_player.setMoney(playerCash);
                 m_bottomPanel.updateMoney();
             }

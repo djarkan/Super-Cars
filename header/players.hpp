@@ -29,7 +29,7 @@ class Players
         size_t                                  getRacerNumber() const;
         sf::Vector2f                            getCarPosition(const unsigned int index) const;
         Player*                                 getPlayer(const size_t index);
-        const Car&                              getPlayerCar(unsigned int index);
+        Player*                                 getPlayerCar(const size_t index);
         unsigned int                            getPlayerCarElevation(unsigned int index) const;
 
         bool                                    setHumanName(bool won);

@@ -130,7 +130,7 @@ unsigned int Players::getHumanJoystick() const
 
 sf::Vector2f Players::getHumanCarPosition() const
 {
-    return m_humanPlayer.getCarPosition();
+    return m_humanPlayer.getPosition();
 }
 
 unsigned int Players::getHumanRanking() const
@@ -140,7 +140,7 @@ unsigned int Players::getHumanRanking() const
 
 float Players::getHumanTopRaceSpeed() const
 {
-    return m_humanPlayer.getCarTopRaceSpeed();
+    return m_humanPlayer.getTopRaceSpeed();
 }
 
 sf::Time Players::getHumanRaceTime() const
@@ -165,7 +165,7 @@ size_t Players::getRacerNumber() const
 
 sf::Vector2f Players::getCarPosition(const unsigned int index) const
 {
-    return m_players[index]->getCarPosition();
+    return m_players[index]->getPosition();
 }
 
 Player* Players::getPlayer(const size_t index)
@@ -173,14 +173,14 @@ Player* Players::getPlayer(const size_t index)
     return m_players[index];
 }
 
-const Car& Players::getPlayerCar(unsigned int index)
+Player* Players::getPlayerCar(const size_t index)
 {
-    return m_players[index]->getCar();
+    return m_players[index];
 }
 
 unsigned int Players::getPlayerCarElevation(unsigned int index) const
 {
-   return m_players[index]->getCarElevation();
+   return m_players[index]->getElevation();
 }
 
 bool Players::setHumanName(bool won)
@@ -219,25 +219,25 @@ std::cout << "vect is empty " << std::endl;
     for(unsigned int index = 0; index < totalRacers; ++index) {
         Player* ptr = new Player;
         if(index == humanStartPlace) {
-            if(m_humanPlayer.getCarIsHighSpeedKitEquiped()) { m_humanPlayer.setCarMaxSpeed(carsFileConfig.m_Root["model"][m_humanPlayer.getCarType()]["maxSpeedKit"].asFloat()); }
-            else { m_humanPlayer.setCarMaxSpeed(carsFileConfig.m_Root["model"][m_humanPlayer.getCarType()]["maxSpeed"].asFloat()); }
-            if(m_humanPlayer.getCarIsTurboChargerKitEquiped()) { m_humanPlayer.setCarAcceleration(3); }
-            else { m_humanPlayer.setCarAcceleration(2); }
-            m_humanPlayer.setCarSpeedLimiter(1);
+            if(m_humanPlayer.getIsHighSpeedKitEquiped()) { m_humanPlayer.setMaxSpeed(carsFileConfig.m_Root["model"][m_humanPlayer.getType()]["maxSpeedKit"].asFloat()); }
+            else { m_humanPlayer.setMaxSpeed(carsFileConfig.m_Root["model"][m_humanPlayer.getType()]["maxSpeed"].asFloat()); }
+            if(m_humanPlayer.getIsTurboChargerKitEquiped()) { m_humanPlayer.setAcceleration(3); }
+            else { m_humanPlayer.setAcceleration(2); }
+            m_humanPlayer.setSpeedLimiter(1);
             m_humanPlayer.setRaceCurrentLap(1);
-            m_humanPlayer.setCarSpeed(0);
+            m_humanPlayer.setSpeed(0);
             m_humanPlayer.setRaceRanking(totalRacers - index);
             ptr = &m_humanPlayer;
             m_players.emplace(m_players.begin(), ptr);
         }
         else {
             ptr->setName(playersFileConfig.m_Root["races"][completedRaces]["names"][AIindex].asString());
-            ptr->setCarType(static_cast<Car::Type>(playersFileConfig.m_Root["races"][completedRaces]["cartype"][AIindex].asInt()));
-            ptr->setCarSpeedLimiter(playersFileConfig.m_Root["races"][completedRaces]["carspeedlimiter"][AIindex].asFloat());
-            ptr->setCarMaxSpeed(carsFileConfig.m_Root["model"][ptr->getCarType()]["maxSpeed"].asFloat());
-            ptr->setCarColor(0);
+            ptr->setType(static_cast<Car::Type>(playersFileConfig.m_Root["races"][completedRaces]["cartype"][AIindex].asInt()));
+            ptr->setSpeedLimiter(playersFileConfig.m_Root["races"][completedRaces]["carspeedlimiter"][AIindex].asFloat());
+            ptr->setMaxSpeed(carsFileConfig.m_Root["model"][ptr->getType()]["maxSpeed"].asFloat());
+            ptr->setColor(0);
             ptr->setHuman(Player::PlayerType::Computer);
-            ptr->setCarSpeed(0);
+            ptr->setSpeed(0);
             ptr->setRaceCurrentLap(1);
             ptr->setRaceRanking(totalRacers - index);
             m_players.emplace(m_players.begin(), ptr);
@@ -248,13 +248,14 @@ std::cout << "vect is empty " << std::endl;
         elem->setBestLapTime(sf::milliseconds(60000));
         elem->resetRaceTime();
         elem->resetAnticheatWaypointValidation();
-        elem->setCarSideSpeed(0);
-        elem->setCarTopRaceSpeed(0); 
+        elem->setSideSpeed(0);
+        elem->setTopRaceSpeed(0); 
         elem->setcarInRankingAreaState(false);
         elem->setStartRanking(false);
         elem->setTexture(&m_carsTexture);
-        elem->setCarShape(sf::FloatRect(0, 0, carsFileConfig.m_Root["model"][elem->getCarType()]["width"].asFloat(), carsFileConfig.m_Root["model"][elem->getCarType()]["heigth"].asFloat()));
-        elem->setCarOrigin(carsFileConfig.m_Root["model"][elem->getCarType()]["width"].asFloat() / 2, carsFileConfig.m_Root["model"][elem->getCarType()]["heigth"].asFloat() / 2);
+        sf::FloatRect shape(0, 0, carsFileConfig.m_Root["model"][elem->getType()]["width"].asFloat(), carsFileConfig.m_Root["model"][elem->getType()]["heigth"].asFloat());
+        elem->setShape(shape);
+        elem->setOrigin(carsFileConfig.m_Root["model"][elem->getType()]["width"].asFloat() / 2, carsFileConfig.m_Root["model"][elem->getType()]["heigth"].asFloat() / 2);
     }
 }
 

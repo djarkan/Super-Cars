@@ -211,7 +211,7 @@ void Garage::action(int choice, Player& player)
             break;
         case 3 :
             if(playerCash >= m_prices[0] && !m_OptionsBought[0]) {
-                player.setCarPowerSteeringKit(true);
+                player.setIsPowerSteeringKitEquiped(true);
                 m_OptionsBought[0] = true;
                 player.setMoney(playerCash - m_prices[0]);
                 m_prices[0] = 0;
@@ -221,7 +221,7 @@ void Garage::action(int choice, Player& player)
             break;
         case 4 :
             if(playerCash >= m_prices[1] && !m_OptionsBought[1]) {
-                player.setCarTurboChargerKit(true);
+                player.setIsTurboChargerKitEquiped(true);
                 m_OptionsBought[1] = true;
                 player.setMoney(playerCash - m_prices[1]);
                 m_prices[1] = 0;
@@ -231,7 +231,7 @@ void Garage::action(int choice, Player& player)
             break;
         case 5 :
             if(playerCash >= m_prices[2] && !m_OptionsBought[2]) {
-                player.setCarHighSpeedKit(true);
+                player.setIsHighSpeedKitEquiped(true);
                 m_OptionsBought[2] = true;
                 player.setMoney(playerCash - m_prices[2]);
                 m_prices[2] = 0;
@@ -241,7 +241,7 @@ void Garage::action(int choice, Player& player)
             break;
         case 6 :
             if(playerCash >= m_prices[3] && !m_OptionsBought[3]) {
-                player.setCarRetroKit(true);
+                player.setIsRetroKitEquiped(true);
                 m_OptionsBought[3] = true;
                 player.setMoney(playerCash - m_prices[3]);
                 m_prices[3] = 0;
@@ -251,7 +251,7 @@ void Garage::action(int choice, Player& player)
             break;
         case 7 :
             if(playerCash >= m_prices[4] && !m_OptionsBought[4]) {
-                player.setCarSpinAssistKit(true);
+                player.setIsSpinAssistKitEquiped(true);
                 m_OptionsBought[4] = true;
                 player.setMoney(playerCash - m_prices[4]);
                 m_prices[4] = 0;
@@ -261,7 +261,7 @@ void Garage::action(int choice, Player& player)
             break;
         case 8 :
             if(playerCash >= m_prices[5] && !m_OptionsBought[5]) {
-                player.setCarFrontMissile(true);
+                player.setIsFrontMissileEquiped(true);
                 m_OptionsBought[5] = true;
                 player.setMoney(playerCash - m_prices[5]);
                 m_prices[5] = 0;
@@ -271,7 +271,7 @@ void Garage::action(int choice, Player& player)
             break;
         case 9 :
             if(playerCash >= m_prices[6] && !m_OptionsBought[6]) {
-                player.setCarRearMissile(true);
+                player.setIsRearMissileEquiped(true);
                 m_OptionsBought[6] = true;
                 player.setMoney(playerCash - m_prices[6]);
                 m_prices[6] = 0;
@@ -281,7 +281,7 @@ void Garage::action(int choice, Player& player)
             break;
         case 10 :
             if(playerCash >= m_prices[7] && !m_OptionsBought[7]) {
-                player.setCarSideArmourKit(true);
+                player.setIsSideArmourKitEquiped(true);
                 m_OptionsBought[7] = true;
                 player.setMoney(playerCash - m_prices[7]);
                 m_prices[7] = 0;
@@ -293,15 +293,15 @@ void Garage::action(int choice, Player& player)
         case 15 :
             if(playerCash >= m_prices[8] && m_prices[8] > 0) {
                playerCash -= m_prices[8];
-               player.setCarEngineState(1);
+               player.setEngineState(1);
                player.setMoney(playerCash);
                m_prices[8] = 0;
             }
             else {
                 if(playerCash > 0 && m_prices[8] > 0) {
                     float percentRepairPossible = static_cast<float>(playerCash) / static_cast<float>(m_prices[8]);
-                    float state = player.getCarEngineState();
-                    player.setCarEngineState(1 - ((1  - state) * (1 - percentRepairPossible)));
+                    float state = player.getEngineState();
+                    player.setEngineState(1 - ((1  - state) * (1 - percentRepairPossible)));
                     player.setMoney(0);
                 }
                 else { break; }
@@ -314,15 +314,15 @@ void Garage::action(int choice, Player& player)
         case 16 :
             if(playerCash >= m_prices[9] && m_prices[9] > 0) {
                playerCash -= m_prices[9];
-               player.setCarBodyState(1);
+               player.setBodyState(1);
                player.setMoney(playerCash);
                m_prices[9] = 0;
             }
             else {
                 if(playerCash > 0 && m_prices[9] > 0) {
                     float percentRepairPossible = static_cast<float>(playerCash) / static_cast<float>(m_prices[9]);
-                    float state = player.getCarBodyState();
-                    player.setCarBodyState(1 - ((1  - state) * (1 - percentRepairPossible)));
+                    float state = player.getBodyState();
+                    player.setBodyState(1 - ((1  - state) * (1 - percentRepairPossible)));
                     player.setMoney(0);
                 }
                 else { break; }
@@ -335,15 +335,15 @@ void Garage::action(int choice, Player& player)
         case 17 :
             if(playerCash >= m_prices[10] && m_prices[10] > 0) {
                playerCash -= m_prices[10];
-               player.setCarTyresState(1);
+               player.setTyresState(1);
                player.setMoney(playerCash);
                m_prices[10] = 0;
             }
             else {
                 if(playerCash > 0 && m_prices[10] > 0) {
                     float percentRepairPossible = static_cast<float>(playerCash) / static_cast<float>(m_prices[10]);
-                    float state = player.getCarTyresState();
-                    player.setCarTyresState(1 - ((1  - state) * (1 - percentRepairPossible)));
+                    float state = player.getTyresState();
+                    player.setTyresState(1 - ((1  - state) * (1 - percentRepairPossible)));
                     player.setMoney(0);
                 }
                 else { break; }
@@ -356,15 +356,15 @@ void Garage::action(int choice, Player& player)
         case 18 :
             if(playerCash >= m_prices[11] && m_prices[11] > 0) {
                playerCash -= m_prices[11];
-               player.setCarFuelState(1);
+               player.setFuelState(1);
                player.setMoney(playerCash);
                m_prices[11] = 0;
             }
             else {
                 if(playerCash > 0 && m_prices[11] > 0) {
                     float percentRepairPossible = static_cast<float>(playerCash) / static_cast<float>(m_prices[11]);
-                    float state = player.getCarFuelState();
-                    player.setCarFuelState(1 - ((1  - state) * (1 - percentRepairPossible)));
+                    float state = player.getFuelState();
+                    player.setFuelState(1 - ((1  - state) * (1 - percentRepairPossible)));
                     player.setMoney(0);
                 }
                 else { break; }
@@ -389,13 +389,13 @@ void Garage::definePrices()
     m_prices[5] = 4000 + randomiser.randomNumber(0,19) * 50;
     m_prices[6] = 3000 + randomiser.randomNumber(0,19) * 50;
     m_prices[7] = 3000 + randomiser.randomNumber(0,19) * 50;
-    if(m_player.getCarEngineState() < 1) { m_prices[8] = 4000 + randomiser.randomNumber(0,19) * 50; }
+    if(m_player.getEngineState() < 1) { m_prices[8] = 4000 + randomiser.randomNumber(0,19) * 50; }
     else { m_prices[8] = 0; }
-    if(m_player.getCarBodyState() < 1) { m_prices[9] = 4000 + randomiser.randomNumber(0,19) * 50; }
+    if(m_player.getBodyState() < 1) { m_prices[9] = 4000 + randomiser.randomNumber(0,19) * 50; }
     else { m_prices[9] = 0; }
-    if(m_player.getCarTyresState() < 1) { m_prices[10] = 2000 + randomiser.randomNumber(0,19) * 50; }
+    if(m_player.getTyresState() < 1) { m_prices[10] = 2000 + randomiser.randomNumber(0,19) * 50; }
     else { m_prices[10] = 0; }
-    if(m_player.getCarFuelState() < 1) { m_prices[11] = 1000 + randomiser.randomNumber(0,19) * 50; }
+    if(m_player.getFuelState() < 1) { m_prices[11] = 1000 + randomiser.randomNumber(0,19) * 50; }
     else { m_prices[11] = 0; }
 }
 

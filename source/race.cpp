@@ -151,13 +151,13 @@ void Race::setRacersOnStartingPosition()
     for(unsigned int i = 8 - m_players.getRacerNumber(), j = 0; j < m_players.getRacerNumber(); ++i, ++j) {
         Player* player{m_players.getPlayer(j)};
         sf::Vector2f spawnCoords = m_trackData.getCarSpawnCoords(i);
-        player->setCarPosition(spawnCoords);
-        player->setCarAngle(m_trackData.getCarSpawnangle(i));
-        player->setCarFrame();
-        player->setCarElevation(m_trackData.getCarSpawnElevation(i));
+        player->setPosition(spawnCoords);
+        player->setAngle(m_trackData.getCarSpawnangle(i));
+        player->setStartFrame(player->getAngle());
+        player->setElevation(m_trackData.getCarSpawnElevation(i));
         player->updateCarLimits();
-        sf::Vector2f coords{player->getCarPosition()};
-        sf::Color color{m_TrackLimits[player->getCarElevation()].getPixel(static_cast<int>(coords.x), static_cast<int>(coords.y))};
+        sf::Vector2f coords{player->getPosition()};
+        sf::Color color{m_TrackLimits[player->getElevation()].getPixel(static_cast<int>(coords.x), static_cast<int>(coords.y))};
         player->setRoadColor(color);
     }
 }
@@ -199,7 +199,7 @@ raceStarted = true;
     gameTimer.start();
     pauseTimer.start();
 std::cout << "starting race" << std::endl;
-m_raceLapsNb = 1;
+m_raceLapsNb = 5;
 std::cout << "language is : " << m_language << std::endl;
     bool pause{false};
     bool gameIsOver{ false };
@@ -247,11 +247,11 @@ std::cout << "language is : " << m_language << std::endl;
                 checkPlayerCarNearBridge(m_trackData.getNearBridgearea());                                                      // check cars elevation
                 checkCarsInAnicheatArea();                                                                                      // check if cars are on a anticheat waypoint
                 for(unsigned int i = 0; i < m_players.getRacerNumber(); ++i) {                                                  // draw cars at floor 0
-                    if(m_players.getPlayerCarElevation(i) == 0) { m_window.draw(m_players.getPlayerCar(i)); }
+                    if(m_players.getPlayerCarElevation(i) == 0) { m_window.draw(*m_players.getPlayerCar(i)); }
                 }
                 drawBridge();                                                                                                   // if bridge in view draw the bridge
                 for(unsigned int i = 0; i < m_players.getRacerNumber(); ++i) {                                                  // draw cars at floor 1
-                    if(m_players.getPlayerCarElevation(i) == 1) { m_window.draw(m_players.getPlayerCar(i)); }
+                    if(m_players.getPlayerCarElevation(i) == 1) { m_window.draw(*m_players.getPlayerCar(i)); }
                 }
                 checkCarsInHazards();
                 checkCarsOnTrack();                                                                                             // check if car is in a hazard
@@ -305,14 +305,14 @@ void Race::buildStatsString(std::string& pannelStringToDisplay)
     Player& player{ m_players.getHumanPlayer() };
     float speedConverter{ 1 };
     if (m_language > 1) { speedConverter = 1.609f; }                                                                                          // convert miles to km
-    if (!player.isCarBroken()) {
+    if (!player.isBroken()) {
         if (player.getRaceRanking() < 4) { pannelStringToDisplay += std::to_string(player.getRaceRanking()); }
         else { pannelStringToDisplay += "-"; }
     }
     else { pannelStringToDisplay += "-"; }
-    if (player.getRaceRanking() > 3 || player.isCarBroken()) { pannelStringToDisplay += "000000----"; }
+    if (player.getRaceRanking() > 3 || player.isBroken()) { pannelStringToDisplay += "000000----"; }
     else {
-        std::string topSpeed{ std::to_string(static_cast<int>(player.getCarTopRaceSpeed() * speedConverter)) };
+        std::string topSpeed{ std::to_string(static_cast<int>(player.getTopRaceSpeed() * speedConverter)) };
         if (topSpeed.size() > 2) { pannelStringToDisplay += topSpeed; }
         else { pannelStringToDisplay += '0' + topSpeed; }
         float totalRaceLength{ (m_raceLapsNb * m_trackData.getTrackLength()) / 1760.f };                                                          // track length in miles
@@ -326,7 +326,7 @@ void Race::buildStatsString(std::string& pannelStringToDisplay)
         convert.erase(std::find(convert.begin(), convert.end(), '.'));
         pannelStringToDisplay += convert;
     }
-    if (player.getRaceRanking() > 3 || player.isCarBroken()) { pannelStringToDisplay += "000000"; }
+    if (player.getRaceRanking() > 3 || player.isBroken()) { pannelStringToDisplay += "000000"; }
     else {
         std::string prizeMoney{ std::to_string(prizeMoneyComputing(player.getGameDifficulty(), player.getRaceRanking())) };
         if (prizeMoney.size() == 5) { pannelStringToDisplay += '0' + prizeMoney; }
@@ -374,7 +374,7 @@ void  Race::initEndingAnimations(const char ranking, mylib::Animation& backgroun
     carAnim.setFrameRate(80);
     Player& player{ m_players.getHumanPlayer() };
     int offset{ 0 };
-    switch (player.getCarType()) {
+    switch (player.getType()) {
         case Car::Type::Taraco_Neoroder:
         case Car::Type::Taraco_Neoroder1:
             carTextureDimension.left = 0;
@@ -457,45 +457,46 @@ void Race::afterRaceAnimations(const bool gameOver, const bool carIsBroken, cons
         m_window.setView(m_topView);
         backgroundAnim.animate();
         infoPanel.update();
-        if(!carIsBroken && gameOver && !gameOverLaunched && infoPanel.isFinished()) {
-            m_audioPlayer.playSound(sounds::gameOver, 100); 
-            gameOverAnim.play();
-            gameOverLaunched = true;
-        }
-        if(carIsMoving && !infoPanel.isFinished() ) { 
+        if(carIsMoving && !infoPanel.isFinished() ) {                                                                               // if win or podium move the car to the midle 
             if (movingTimer.isTimeElapsed()) {
                 coords = carAnim.getPosition();
                 carAnim.setPosition(sf::Vector2f(coords.x + carMovement, coords.y));
-                movingTimer.restart();
+                movingTimer.restart(); 
             }
             carAnim.animate();
         }
-        if (gameOverLaunched) { gameOverAnim.animate(); }
-        if (gameOver && !carIsBroken && gameOverAnim.getState() == mylib::Animation::State::stopped && !pause.isTimerStarted()) { 
-            pause.setDuration(5000);
-            pause.start(); 
-        }
-        if (gameOver && !carIsBroken && pause.isTimeElapsed()) { animationsOn = false; }
-        if (!gameOver && !carIsBroken && infoPanel.isFinished() && !pause.isTimerStarted() && !pauseFinished) {
+        if (!gameOver && !carIsBroken && infoPanel.isFinished() && !pause.isTimerStarted() && !pauseFinished) {                     // if win or podium and car at the middle start the pause
             pause.setDuration(3000);
             pause.start();
             carIsMoving = false;
         }
-        if (!gameOver && !carIsBroken && pause.isTimeElapsed()) { 
-            carIsMoving = true; 
+        if (!gameOver && !carIsBroken && pause.isTimeElapsed()) {                                                                   // if win or podium and pause finished allow the car to move
+            carIsMoving = true;
             movingTimer.restart();
             pauseFinished = true;
         }
-        if (!gameOver && !carIsBroken && carIsMoving && pauseFinished) {
+        if (!gameOver && !carIsBroken && carIsMoving && pauseFinished) {                                                            // if win or podium mover the car out of the screen                                                    
             if (movingTimer.isTimeElapsed()) {
                 coords = carAnim.getPosition();
                 carAnim.setPosition(sf::Vector2f(coords.x + carMovement, coords.y));
                 movingTimer.restart();
+                if (coords.x > 680) { animationsOn = false; }
             }
             carAnim.animate();
         }
-        sf::Vector2f wheelCoords{ wheelSprite.getPosition() };
-        if (carIsBroken && movingTimer.isTimeElapsed()) {
+        if (!carIsBroken && gameOver && !gameOverLaunched && infoPanel.isFinished()) {                                              // if game over launch gamer over animation
+            m_audioPlayer.playSound(sounds::gameOver, 100);
+            gameOverAnim.play();
+            gameOverLaunched = true;
+        }
+        if (gameOverLaunched) { gameOverAnim.animate(); }                                                                           // if game over animate game over animation
+        if (gameOver && !carIsBroken && gameOverAnim.getState() == mylib::Animation::State::stopped && !pause.isTimerStarted()) {   // if game over and game over animation finished start pause
+            pause.setDuration(5000);
+            pause.start(); 
+        }
+        if (gameOver && !carIsBroken && pause.isTimeElapsed()) { animationsOn = false; }                                            // if game over and pause finished ending animation is over
+        sf::Vector2f wheelCoords{ wheelSprite.getPosition() };                                                                      
+        if (carIsBroken && movingTimer.isTimeElapsed()) {                                                                           // if car is broken move and animate the bouncing wheel
             movingTimer.restart();
             if (wheelDown) {
                 if (wheelCoords.y < 322) { wheelSprite.setPosition(sf::Vector2f(wheelCoords.x + 0.7f, wheelCoords.y + 1)); }
@@ -511,14 +512,14 @@ void Race::afterRaceAnimations(const bool gameOver, const bool carIsBroken, cons
             }
             wheelSprite.rotate(3);
         }
-        if (carIsBroken && wheelCoords.x > 670 && !pause.isTimerStarted()) { pause.start(); }
-        if (carIsBroken && pause.isTimeElapsed() && gameOverAnim.getState() == mylib::Animation::State::idle) {
+        if (carIsBroken && wheelCoords.x > 670 && !pause.isTimerStarted()) { pause.start(); }                                       // if car broken and wheel out of the screen start the pause
+        if (carIsBroken && pause.isTimeElapsed() && gameOverAnim.getState() == mylib::Animation::State::idle) {                     // if car broken and wheel out of th escreen and pause finished launch gameover animation
             gameOverAnim.play(); 
             gameOverLaunched = true;
             m_audioPlayer.playSound(sounds::gameOver, 100);
         }
-        if (carIsBroken && pause.isTimeElapsed() && gameOverAnim.getState() != mylib::Animation::State::running) { gameOverAnim.animate(); }
-        if (carIsBroken && gameOverAnim.getState() == mylib::Animation::State::stopped) { 
+        if (carIsBroken && pause.isTimeElapsed() && gameOverAnim.getState() != mylib::Animation::State::running) { gameOverAnim.animate(); }  // animate game over animation
+        if (carIsBroken && gameOverAnim.getState() == mylib::Animation::State::stopped) {                                           // if car broken and game over animation finished launch pause and stop ending animation
             animationsOn = false; 
             sf::sleep(sf::milliseconds(5000));
         }
@@ -537,15 +538,15 @@ void Race::afterRaceAnimations(const bool gameOver, const bool carIsBroken, cons
 bool Race::isHumanCarBroken() const
 {
     Player& player{ m_players.getHumanPlayer() };
-    return player.isCarBroken();
+    return player.isBroken();
 }
 
 void Race::updateRaceBottomPanel(const Player& player)
 {
-    m_raceBottomPanel.updateSpeedMeter(player.getCarSpeed());
+    m_raceBottomPanel.updateSpeedMeter(player.getSpeed());
     m_raceBottomPanel.updateLaps(player.getRaceCurrentLap(), m_raceLapsNb);
     m_raceBottomPanel.updatePosition(player.getRaceRanking(), m_players.getRacerNumber());
-    m_raceBottomPanel.updateCarUsury(player.getCarEngineState(), player.getCarBodyState(), player.getCarFuelState(), player.getCarTyresState());
+    m_raceBottomPanel.updateCarUsury(player.getEngineState(), player.getBodyState(), player.getFuelState(), player.getTyresState());
 }
 
 void Race::setRaceLapsNumber(unsigned int completedRaces)
@@ -681,7 +682,7 @@ void Race::checkCarsInHazards()
         sf::Vector2f cornerCoord;
         carCornerCoords.resize(0);
         for(auto i = 2; i < 6; ++i) {
-            cornerCoord = player->getCarCornerCoords(i);
+            cornerCoord = player->getCornerCoords(i);
             carCornerCoords.push_back(cornerCoord);
         }
         for(unsigned int j = 0; j < m_hazards.size(); ++j) {
@@ -694,12 +695,12 @@ void Race::checkCarsInHazards()
             hazardConers[1] = sf::Vector2f(HazardShape.left + HazardShape.width, HazardShape.top);
             hazardConers[2] = sf::Vector2f(HazardShape.left + HazardShape.width, HazardShape.top + HazardShape.height);
             hazardConers[3] = sf::Vector2f(HazardShape.left, HazardShape.top + HazardShape.height);
-            sf::Vector2f coords1{player->getCarPosition()};
+            sf::Vector2f coords1{player->getPosition()};
             sf::Vector2f coords2{HazardShape.left + (HazardShape.width / 2), HazardShape.top + (HazardShape.height / 2)};
             float distance{std::sqrt(std::pow(coords2.x - coords1.x, 2.f) + std::pow(coords2.y - coords1.y, 2.f))};
             carInHazard = false;
             if(distance < 74) {
-                carInHazard = m_collisioner.isDotInRectangle(player->getCarPosition(), HazardShape);
+                carInHazard = m_collisioner.isDotInRectangle(player->getPosition(), HazardShape);
                 if(!carInHazard)
                     carInHazard = m_collisioner.isPolygonIntersectPolygon(hazardConers, carCornerCoords);
             }
@@ -707,29 +708,29 @@ void Race::checkCarsInHazards()
                 switch (m_hazards[j].type) {
                     case HazardType::big_water:
                     case HazardType::small_water:
-                        if(player->getCarSpeed() > 60) {
-                            if(player->getCarInteractionType() != Car::Interaction::waterShifting) {
-                                float angle{player->getCarAngle()};
-                                if(!player->getCarIsSpinAssistKitEquiped()) {
-                                    player->turnCar(Car::Direction::Right);
-                                    player->turnCar(Car::Direction::Right);
+                        if(player->getSpeed() > 60) {
+                            if(player->getInteractionType() != Entity::Interaction::waterShifting) {
+                                float angle{player->getAngle()};
+                                if(!player->getIsSpinAssistKitEquiped()) {
+                                    player->turn(Entity::Direction::Right);
+                                    player->turn(Entity::Direction::Right);
                                 }
-                                player->setCarInteraction(Car::Interaction::waterShifting, angle, 8, 0);
+                                player->setInteraction(Entity::Interaction::waterShifting, angle, 8, 0);
                                 m_audioPlayer.playSound(sounds::tyresWater, 100);
                             }
                         }
                         break;
                     case HazardType::big_sand:
                     case HazardType::small_sand:
-                        player->setCarInSand(true);
+                        player->setInSand(true);
                         inSand = true;
                         break;
                     case HazardType::big_oil:
                     case HazardType::small_oil:
-                        if(player->getCarSpeed() > 60) {
-                            if(player->getCarInteractionType() != Car::Interaction::Spining) {
-                                if(!player->getCarIsSpinAssistKitEquiped()) { player->setCarInteraction(Car::Interaction::Spining, player->getCarAngle(), 11, 0); }
-                                else { player->setCarInteraction(Car::Interaction::Spining, player->getCarAngle(), 12, 0); }
+                        if(player->getSpeed() > 60) {
+                            if(player->getInteractionType() != Entity::Interaction::Spining) {
+                                if(!player->getIsSpinAssistKitEquiped()) { player->setInteraction(Entity::Interaction::Spining, player->getAngle(), 11, 0); }
+                                else { player->setInteraction(Entity::Interaction::Spining, player->getAngle(), 12, 0); }
 
                                 m_audioPlayer.playSound(sounds::tyresLong, 100);
                             }
@@ -740,7 +741,7 @@ void Race::checkCarsInHazards()
                 }
             }
         }
-        player->setCarInSand(inSand);
+        player->setInSand(inSand);
     }
 }
 
@@ -757,12 +758,12 @@ void Race::driveHumanCar(const Command& command)
                     player->decelerate();
                     break;
                 case CommandType::joystiskMoved :
-                    if(command.offsetX < 50) { player->turnCar(Car::Direction::Left); }
-                    else { player->turnCar(Car::Direction::Right); }
-                    if(command.offsetY > 50 && player->getCarIsFrontMissileEquiped()) {
+                    if(command.offsetX < 50) { player->turn(Entity::Direction::Left); }
+                    else { player->turn(Entity::Direction::Right); }
+                    if(command.offsetY > 50 && player->getIsFrontMissileEquiped()) {
                         // FIRE FRONT MISSILE
                     }
-                    if(command.offsetY < 0 && player->getCarIsRearMissileEquiped()) {
+                    if(command.offsetY < 0 && player->getIsRearMissileEquiped()) {
                          /*FIRE REAR MISSILE*/
                     }
                     break;
@@ -779,47 +780,47 @@ void Race::driveComputerCars()
     for (unsigned int i = 0; i < m_players.getRacerNumber(); ++i) {
         Player* player{ m_players.getPlayer(i) };
         if (player->isComputer()) {
-            sf::Vector2f carCenterCoords{ player->getCarPosition() };
-            sf::Color color{ m_TrackLimits[player->getCarElevation()].getPixel(static_cast<int>(carCenterCoords.x), static_cast<int>(carCenterCoords.y)) };
-            unsigned int  carFrame{ player->getCarFrame() };
+            sf::Vector2f carCenterCoords{ player->getPosition() };
+            sf::Color color{ m_TrackLimits[player->getElevation()].getPixel(static_cast<int>(carCenterCoords.x), static_cast<int>(carCenterCoords.y)) };
+            unsigned int  carFrame{ player->getCurrentFrame() };
             if (color == sf::Color(0xFFAEC9FF)) {
-                if (carFrame >= 1 && carFrame <= 12) { player->turnCar(Car::Direction::Left); }
-                if (carFrame > 12) { player->turnCar(Car::Direction::Right); }
+                if (carFrame >= 1 && carFrame <= 12) { player->turn(Entity::Direction::Left); }
+                if (carFrame > 12) { player->turn(Entity::Direction::Right); }
             }
             else
                 if (color == sf::Color(0x99D9EAFF)) {
-                    if (carFrame >= 4 && carFrame <= 15) { player->turnCar(Car::Direction::Left); }
-                    if (carFrame > 15 || carFrame < 3) { player->turnCar(Car::Direction::Right); }
+                    if (carFrame >= 4 && carFrame <= 15) { player->turn(Entity::Direction::Left); }
+                    if (carFrame > 15 || carFrame < 3) { player->turn(Entity::Direction::Right); }
                 }
                 else
                     if (color == sf::Color(0xC8BFE7FF)) {
-                        if (carFrame >= 7 && carFrame <= 18) { player->turnCar(Car::Direction::Left); }
-                        if ((carFrame > 18 && carFrame <= 23) || carFrame < 6) { player->turnCar(Car::Direction::Right); }
+                        if (carFrame >= 7 && carFrame <= 18) { player->turn(Entity::Direction::Left); }
+                        if ((carFrame > 18 && carFrame <= 23) || carFrame < 6) { player->turn(Entity::Direction::Right); }
                     }
                     else
                         if (color == sf::Color(0x880015FF)) {
-                            if (carFrame >= 10 && carFrame <= 21) { player->turnCar(Car::Direction::Left); }
-                            if ((carFrame > 21 && carFrame <= 23) || carFrame < 9) { player->turnCar(Car::Direction::Right); }
+                            if (carFrame >= 10 && carFrame <= 21) { player->turn(Entity::Direction::Left); }
+                            if ((carFrame > 21 && carFrame <= 23) || carFrame < 9) { player->turn(Entity::Direction::Right); }
                         }
                         else
                             if (color == sf::Color(0xF09B59FF)) {
-                                if (carFrame > 12) { player->turnCar(Car::Direction::Left); }
-                                if (carFrame < 12) { player->turnCar(Car::Direction::Right); }
+                                if (carFrame > 12) { player->turn(Entity::Direction::Left); }
+                                if (carFrame < 12) { player->turn(Entity::Direction::Right); }
                             }
                             else
                                 if (color == sf::Color(0x75FA8DFF)) {
-                                    if (carFrame >= 16 || carFrame < 3) { player->turnCar(Car::Direction::Left); }
-                                    if (carFrame < 15 && carFrame >= 3) { player->turnCar(Car::Direction::Right); }
+                                    if (carFrame >= 16 || carFrame < 3) { player->turn(Entity::Direction::Left); }
+                                    if (carFrame < 15 && carFrame >= 3) { player->turn(Entity::Direction::Right); }
                                 }
                                 else
                                     if (color == sf::Color(0x7F7F7FFF)) {
-                                        if (carFrame >= 19 || carFrame < 6) { player->turnCar(Car::Direction::Left); }
-                                        if (carFrame < 18 && carFrame >= 6) { player->turnCar(Car::Direction::Right); }
+                                        if (carFrame >= 19 || carFrame < 6) { player->turn(Entity::Direction::Left); }
+                                        if (carFrame < 18 && carFrame >= 6) { player->turn(Entity::Direction::Right); }
                                     }
                                     else
                                         if (color == sf::Color(0xFFF200FF)) {
-                                            if (carFrame >= 22 || carFrame < 9) { player->turnCar(Car::Direction::Left); }
-                                            if (carFrame < 21 && carFrame >= 9) { player->turnCar(Car::Direction::Right); }
+                                            if (carFrame >= 22 || carFrame < 9) { player->turn(Entity::Direction::Left); }
+                                            if (carFrame < 21 && carFrame >= 9) { player->turn(Entity::Direction::Right); }
                                         }
             player->accelerate();
             //player->decelerate();
@@ -832,22 +833,22 @@ void Race::checkPlayerCarNearBridge(const std::vector<sf::FloatRect>&  areas)
     sf::Vector2f coordsToCheck;
     for(unsigned int j = 0; j < m_players.getRacerNumber(); ++j) {
         Player* player{m_players.getPlayer(j)};
-        coordsToCheck = player->getCarPosition();
+        coordsToCheck = player->getPosition();
         bool carInArea{false};
         for(unsigned int i = 0; i < areas.size(); ++i) {
            carInArea |= coordsToCheck.x >= areas[i].left && coordsToCheck.x <= areas[i].left + areas[i].width && coordsToCheck.y >= areas[i].top && coordsToCheck.y <= areas[i].top + areas[i].height;
         }
         if(carInArea) {
-            if(player->getCarElevation() == 0  && !player->getCarNearBridgeArea()) {
-                player->setCarElevation(1);
-                player->setCarNearBridgeArea(true);
+            if(player->getElevation() == 0  && !player->getNearBridgeArea()) {
+                player->setElevation(1);
+                player->setNearBridgeArea(true);
             }
-            if(player->getCarElevation() == 1  && !player->getCarNearBridgeArea()) {
-                player->setCarElevation(0);
-                player->setCarNearBridgeArea(true);
+            if(player->getElevation() == 1  && !player->getNearBridgeArea()) {
+                player->setElevation(0);
+                player->setNearBridgeArea(true);
             }
         }
-        else { player->setCarNearBridgeArea(false); }
+        else { player->setNearBridgeArea(false); }
     }
 }
 
@@ -857,7 +858,7 @@ void Race::checkCarsInAnicheatArea()
     sf::FloatRect area;
     for(unsigned int i = 0; i < m_players.getRacerNumber(); ++i) {
         Player* player{m_players.getPlayer(i)};
-        coordsToCheck = player->getCarPosition();
+        coordsToCheck = player->getPosition();
         for(unsigned int j = 0; j < 3; ++j) {
            area = m_trackData.getAnticheatWaypoint(j);
             if(coordsToCheck.x >= area.left && coordsToCheck.x <= area.left + area.width && coordsToCheck.y >= area.top && coordsToCheck.y <= area.top + area.height) {
@@ -902,7 +903,7 @@ bool Race::checkCarsOnArrival()
     sf::FloatRect area;
     for(unsigned int i = 0; i < m_players.getRacerNumber(); ++i) {
         Player* player{m_players.getPlayer(i)};
-        coordsToCheck = player->getCarPosition();
+        coordsToCheck = player->getPosition();
         area = m_trackData.getArrivalPortalArea();
         sf::Time thisLapTime;
         if(coordsToCheck.x >= area.left && coordsToCheck.x <= area.left + area.width && coordsToCheck.y >= area.top && coordsToCheck.y <= area.top + area.height) {
@@ -963,16 +964,16 @@ sf::CircleShape circle(1);
 circle.setFillColor(sf::Color::Red);
     for(unsigned int playerIndex = 0; playerIndex < m_players.getRacerNumber(); ++playerIndex) {
         Player* player{m_players.getPlayer(playerIndex)};
-circle.setPosition(player->getCarPosition());
+circle.setPosition(player->getPosition());
 m_window.draw(circle);
         for(unsigned int carLimitNb = 0; carLimitNb < 8; ++carLimitNb) {
             cornerToCheck = player->getCarLimit(carLimitNb);
 circle.setPosition(cornerToCheck);
 m_window.draw(circle);
-            sf::Color color{m_TrackLimits[player->getCarElevation()].getPixel(static_cast<int>(cornerToCheck.x), static_cast<int>(cornerToCheck.y))};
+            sf::Color color{m_TrackLimits[player->getElevation()].getPixel(static_cast<int>(cornerToCheck.x), static_cast<int>(cornerToCheck.y))};
             if (color == sf::Color(0xED1C24FF) || color == sf::Color(0x22B14CFF) || color == sf::Color(0x3F48CCFF) || color == sf::Color(0xA349A4FF) ||
                 color == sf::Color(0xFF7F27FF) || color == sf::Color(0xEFE4B0FF) || color == sf::Color(0xB5E61DFF) || color == sf::Color(0xB97A57FF)) {
-                if (player->getCarInteractionType() != Car::Interaction::Bumping) {
+                if (player->getInteractionType() != Entity::Interaction::Bumping) {
                     if(player->isHuman()) { m_audioPlayer.playSound(sounds::ID::bump, 100); }
                     float angle{ 0 };
                     if (color == sf::Color(0xED1C24FF) || color == sf::Color(0xB5E61DFF)) { angle = 5.4978f; }
@@ -982,7 +983,7 @@ m_window.draw(circle);
                             if (color == sf::Color(0x3F48CCFF) || color == sf::Color(0xFF7F27FF)) { angle = 2.3562f; }
                             else
                                 if (color == sf::Color(0xA349A4FF) || color == sf::Color(0xB97A57FF)) { angle = 3.927f; }
-                    player->setCarInteraction(Car::Interaction::Bumping, angle, 1, 25);
+                    player->setInteraction(Entity::Interaction::Bumping, angle, 1, 25);
                     return;
                 }
             }
@@ -997,7 +998,7 @@ void Race::checkCarsRanking()
     bool inAnArea{false};
     for(unsigned int playerIndex = 0; playerIndex < m_players.getRacerNumber(); ++playerIndex) {
         Player* player{m_players.getPlayer(playerIndex)};
-        sf::Vector2f coordsToCheck = player->getCarPosition();
+        sf::Vector2f coordsToCheck = player->getPosition();
         inAnArea = false;
         for(unsigned int i = 0; i < m_trackData.getRankingAreaNumber(); ++i) {
             area = m_trackData.getRankingArea(i);
@@ -1033,9 +1034,9 @@ void Race::moveCars()
     for(unsigned int playerIndex = 0; playerIndex < m_players.getRacerNumber(); ++playerIndex) {
         Player* player{m_players.getPlayer(playerIndex)};
 // std::cout << player->getName() << " speed: " << player->getCarSpeed() << std::endl;
-        player->moveCar();
-        sf::Vector2f coords{player->getCarPosition()};
-        sf::Color color{m_TrackLimits[player->getCarElevation()].getPixel(static_cast<int>(coords.x), static_cast<int>(coords.y))};
+        player->move();
+        sf::Vector2f coords{player->getPosition()};
+        sf::Color color{m_TrackLimits[player->getElevation()].getPixel(static_cast<int>(coords.x), static_cast<int>(coords.y))};
         player->setRoadColor(color);
     }
 }
@@ -1047,21 +1048,21 @@ void Race::checkCarOnCarCollision()
         for(unsigned int playerIndex2 = 0; playerIndex2 < m_players.getRacerNumber(); ++playerIndex2) {
             Player* player2{m_players.getPlayer(playerIndex2)};
             if(player1->getName() != player2->getName()) {                                                                  // possible collision ?
-                if (player1->getCarElevation() == player2->getCarElevation()) {
-                    sf::Vector2f coords1{ player1->getCarPosition() };
-                    sf::Vector2f coords2{ player2->getCarPosition() };
+                if (player1->getElevation() == player2->getElevation()) {
+                    sf::Vector2f coords1{ player1->getPosition() };
+                    sf::Vector2f coords2{ player2->getPosition() };
                     float distance{ std::pow(coords2.x - coords1.x, 2.f) + std::pow(coords2.y - coords1.y, 2.f) };
                     if (distance < 46 * 46) {
-                        sf::FloatRect player1Shape{ player1->getCarShape() };
-                        sf::FloatRect player2Shape{ player1->getCarShape() };
+                        sf::FloatRect player1Shape{ player1->getShape() };
+                        sf::FloatRect player2Shape{ player1->getShape() };
                         if (sqrt(distance) < ((player1Shape.height - 4) / 2 + (player2Shape.height - 4) / 2) - 2) {
-                            if (player1->getCarSpeed() > player2->getCarSpeed()) {
-                                player2->setCarInteraction(Car::Interaction::Pushed, player2->getCarSideAngle(), 3, player1->getCarSpeed() * 0.5f * 0.8f);
-                                player1->setCarSpeed(player1->getCarSpeed() * 0.5f);
+                            if (player1->getSpeed() > player2->getSpeed()) {
+                                player2->setInteraction(Entity::Interaction::Pushed, player2->getSideAngle(), 3, player1->getSpeed() * 0.5f * 0.8f);
+                                player1->setSpeed(player1->getSpeed() * 0.5f);
                             }
                             else {
-                                player1->setCarInteraction(Car::Interaction::Pushed, player1->getCarSideAngle(), 3, player2->getCarSpeed() * 0.5f * 0.8f);
-                                player2->setCarSpeed(player2->getCarSpeed() * 0.5f);
+                                player1->setInteraction(Entity::Interaction::Pushed, player1->getSideAngle(), 3, player2->getSpeed() * 0.5f * 0.8f);
+                                player2->setSpeed(player2->getSpeed() * 0.5f);
                             }
                             if (player1->isHuman() || player2->isHuman())
                                 m_audioPlayer.playSound(sounds::ID::bump, 100);
@@ -1070,23 +1071,23 @@ void Race::checkCarOnCarCollision()
                         bool isCollision{ false };
                         std::vector<unsigned int> triangleSegment{ 2, 3, 4, 5, 2 };
                         for (unsigned int corner = 0; corner < 8; ++corner) {                                                       // for player1 all front car corners
-                            sf::Vector2f coordsToCheck{ player1->getCarCornerCoords(corner) };
+                            sf::Vector2f coordsToCheck{ player1->getCornerCoords(corner) };
                             std::vector<sf::Vector2f> triangleVertices;
                             for (unsigned j = 0; j < 4; ++j) {                                                                      // test triangles side right, back, side left
                                 triangleVertices.resize(0);
-                                triangleVertices.push_back(player2->getCarPosition());
-                                triangleVertices.push_back(player2->getCarCornerCoords(triangleSegment[j]));
-                                triangleVertices.push_back(player2->getCarCornerCoords(triangleSegment[j + 1]));
+                                triangleVertices.push_back(player2->getPosition());
+                                triangleVertices.push_back(player2->getCornerCoords(triangleSegment[j]));
+                                triangleVertices.push_back(player2->getCornerCoords(triangleSegment[j + 1]));
                                 if (!isCollision) {
                                     isCollision = m_collisioner.isDotInConvexPolygon(coordsToCheck, triangleVertices);
                                     if (isCollision) {
-                                        if (player1->getCarSpeed() > 1 || player2->getCarSpeed() > 1 || player1->getCarSideSpeed() > 1 || player2->getCarSideSpeed() > 1) {
+                                        if (player1->getSpeed() > 1 || player2->getSpeed() > 1 || player1->getSideSpeed() > 1 || player2->getSideSpeed() > 1) {
                                             if (player1->isHuman() || player2->isHuman())
                                                 m_audioPlayer.playSound(sounds::ID::bump, 100);                                     // meme son que bump dans mur ?????????????
                                             float angle{ 0 }, speed{ 0 };
                                             Player* fasterCar{ nullptr };
                                             Player* slowerCar{ nullptr };
-                                            if (player1->getCarSpeed() + player1->getCarSideSpeed() > player2->getCarSpeed() + player2->getCarSideSpeed()) {
+                                            if (player1->getSpeed() + player1->getSideSpeed() > player2->getSpeed() + player2->getSideSpeed()) {
                                                 fasterCar = player1;
                                                 slowerCar = player2;
                                             }
@@ -1097,83 +1098,82 @@ void Race::checkCarOnCarCollision()
                                             switch (j) {
                                             case 0:                                                                                 // player1 in player2 left side
                                             case 2:                                                                                 // player1 in player2 right side
-                                                if (player1->getCarSpeed() + player1->getCarSideSpeed() > 1) {
+                                                if (player1->getSpeed() + player1->getSideSpeed() > 1) {
                                                     if (corner == 1 || corner == 4 || corner == 7 || corner == 3 || corner == 6) {
 std::cout << "player1 front " << player1->getName() << " in player2 " << player2->getName() << " side" << std::endl;
-                                                        if (player1->getCarSideSpeed() > 1) { angle = player1->getCarSideAngle(); }
+                                                        if (player1->getSideSpeed() > 1) { angle = player1->getSideAngle(); }
                                                         else {
-                                                            if (player1->isCarShifting()) { angle = player1->getCarShiftingAngle(); }
-                                                            else { angle = player1->getCarAngle(); }
+                                                            if (player1->isShifting()) { angle = player1->getShiftingAngle(); }
+                                                            else { angle = player1->getAngle(); }
                                                         }
-                                                        speed = player1->getCarSpeed() + player1->getCarSideSpeed();
-                                                        player1->setCarSpeed(player1->getCarSpeed() * 0.15f);
-                                                        player1->setCarSideSpeed(player1->getCarSpeed() * 0.15f);
-                                                        player2->setCarInteraction(Car::Interaction::Pushed, angle, 3, speed * 0.8f);
+                                                        speed = player1->getSpeed() + player1->getSideSpeed();
+                                                        player1->setSpeed(player1->getSpeed() * 0.15f);
+                                                        player1->setSideSpeed(player1->getSpeed() * 0.15f);
+                                                        player2->setInteraction(Entity::Interaction::Pushed, angle, 3, speed * 0.4f);
                                                     }
                                                     else
                                                         if (corner == 2 || corner == 5 || corner == 0) {
 std::cout << "player1 back " << player1->getName() << " in player2 " << player2->getName() << " side" << std::endl;
-                                                            if (player1->getCarSideSpeed() > 1) { angle = player1->getCarSideAngle(); }
+                                                            if (player1->getSideSpeed() > 1) { angle = player1->getSideAngle(); }
                                                             else {
-                                                                if (player1->isCarShifting()) { angle = 3.14159265358f * 2 - player1->getCarShiftingAngle(); }
-                                                                else { angle = 3.14159265358f * 2 - player1->getCarAngle(); }
+                                                                if (player1->isShifting()) { angle = 3.14159265358f * 2 - player1->getShiftingAngle(); }
+                                                                else { angle = 3.14159265358f * 2 - player1->getAngle(); }
                                                             }
-                                                            speed = player1->getCarSpeed() + player1->getCarSideSpeed();
-                                                            player1->setCarSpeed(player1->getCarSpeed() * 0.15f);
-                                                            player1->setCarSideSpeed(player1->getCarSpeed() * 0.15f);
-                                                            player2->setCarInteraction(Car::Interaction::Pushed, angle, 3, speed * 0.8f);
+                                                            speed = player1->getSpeed() + player1->getSideSpeed();
+                                                            player1->setSpeed(player1->getSpeed() * 0.15f);
+                                                            player1->setSideSpeed(player1->getSpeed() * 0.15f);
+                                                            player2->setInteraction(Entity::Interaction::Pushed, angle, 3, speed * 0.4f);
                                                         }
                                                 }
                                                 else {
 std::cout << "player1 standing still " << player1->getName() << " in player2 " << player2->getName() << " side" << std::endl;
-                                                    if (player2->getCarSideSpeed() > 1) { angle = player2->getCarSideAngle(); }
+                                                    if (player2->getSideSpeed() > 1) { angle = player2->getSideAngle(); }
                                                     else {
-                                                        if (player2->isCarShifting()) { angle = player2->getCarShiftingAngle(); }
-                                                        else { angle = player2->getCarAngle(); }
+                                                        if (player2->isShifting()) { angle = player2->getShiftingAngle(); }
+                                                        else { angle = player2->getAngle(); }
                                                     }
-                                                    speed = player2->getCarSpeed() + player2->getCarSideSpeed();
-                                                    player2->setCarSpeed(player2->getCarSpeed() * 0.15f);
-                                                    player2->setCarSideSpeed(player2->getCarSpeed() * 0.15f);
-                                                    player1->setCarInteraction(Car::Interaction::Pushed, angle, 3, speed * 0.8f);
+                                                    speed = player2->getSpeed() + player2->getSideSpeed();
+                                                    player2->setSpeed(player2->getSpeed() * 0.15f);
+                                                    player2->setSideSpeed(player2->getSpeed() * 0.15f);
+                                                    player1->setInteraction(Entity::Interaction::Pushed, angle, 3, speed * 0.8f);
                                                 }
-                                                player1->setCarPosition(player1->getCarOldPosition());
+                                                player1->setPosition(player1->getOldPosition());
                                                 return;
                                             case 1:                                                                             // player1 in player2 front
                                                 if (corner == 1 || corner == 4 || corner == 7 || corner == 3 || corner == 6) {
 std::cout << "player1 front " << player1->getName() << " in player2 " << player2->getName() << " front" << std::endl;
-                                                    if (slowerCar->getCarSpeed() > 1) { fasterCar->setCarInteraction(Car::Interaction::Pushed, slowerCar->getCarAngle(), 3, slowerCar->getCarSpeed() * 0.5f); }
-                                                    if (fasterCar->getCarSpeed() > 1) { slowerCar->setCarInteraction(Car::Interaction::Pushed, fasterCar->getCarAngle(), 3, fasterCar->getCarSpeed() * 0.5f); }
-                                                    fasterCar->setCarPosition(fasterCar->getCarOldPosition());
-                                                    slowerCar->setCarPosition(slowerCar->getCarOldPosition());
+                                                    if (slowerCar->getSpeed() > 1) { fasterCar->setInteraction(Entity::Interaction::Pushed, slowerCar->getAngle(), 3, slowerCar->getSpeed() * 0.3f); }
+                                                    if (fasterCar->getSpeed() > 1) { slowerCar->setInteraction(Entity::Interaction::Pushed, fasterCar->getAngle(), 3, fasterCar->getSpeed() * 0.3f); }
+                                                    fasterCar->setPosition(fasterCar->getOldPosition());
+                                                    slowerCar->setPosition(slowerCar->getOldPosition());
 
                                                 }
                                                 else {
-std::cout << "player1 back " << player1->getName() << " in player2 " << player2->getName() << " back" << std::endl;
-                                                    if (fasterCar->isCarShifting()) { angle = fasterCar->getCarShiftingAngle(); }
-                                                    else { angle = fasterCar->getCarAngle(); }
-                                                    speed = fasterCar->getCarSideSpeed();
-                                                    slowerCar->setCarInteraction(Car::Interaction::Pushed, angle, 3, speed);
-                                                    fasterCar->setCarSpeed(fasterCar->getCarSpeed() * 0.15f);
-                                                    fasterCar->setCarSideSpeed(fasterCar->getCarSpeed() * 0.15f);
-                                                    fasterCar->setCarPosition(fasterCar->getCarOldPosition());
+std::cout << "player1 back " << player1->getName() << " in player2 " << player2->getName() << " front" << std::endl;
+                                                    if (fasterCar->isShifting()) { angle = fasterCar->getShiftingAngle(); }
+                                                    else { angle = fasterCar->getAngle(); }
+                                                    speed = fasterCar->getSideSpeed();
+                                                    slowerCar->setInteraction(Entity::Interaction::Pushed, angle, 3, speed);
+                                                    fasterCar->setSpeed(fasterCar->getSpeed() * 0.15f);
+                                                    fasterCar->setSideSpeed(fasterCar->getSpeed() * 0.15f);
+                                                    fasterCar->setPosition(fasterCar->getOldPosition());
                                                  }
                                                 return;
                                             case 3:
 std::cout << "player1 front or back " << player1->getName() << " in player2 " << player2->getName() << " back" << std::endl;
-                                                if (fasterCar->getCarSideSpeed() > 1) {
-                                                    angle = fasterCar->getCarSideAngle();
-                                                    speed = fasterCar->getCarSideSpeed();
+                                                if (fasterCar->getSideSpeed() > 1) {
+                                                    angle = fasterCar->getSideAngle();
+                                                    speed = fasterCar->getSideSpeed();
                                                 }
                                                 else {
-                                                    if (fasterCar->isCarShifting()) { angle = fasterCar->getCarShiftingAngle(); }
-                                                    else { angle = fasterCar->getCarAngle(); }
-                                                    speed = fasterCar->getCarSpeed();
+                                                    if (fasterCar->isShifting()) { angle = fasterCar->getShiftingAngle(); }
+                                                    else { angle = fasterCar->getAngle(); }
+                                                    speed = fasterCar->getSpeed();
                                                 }
 std::cout << "speed: " << speed << std::endl;
-                                                slowerCar->setCarInteraction(Car::Interaction::Pushed, angle, 3, speed);
-                                                fasterCar->setCarSpeed(fasterCar->getCarSpeed() * 0.15f);
-                                                fasterCar->setCarSideSpeed(fasterCar->getCarSpeed() * 0.15f);
-                                                fasterCar->setCarPosition(fasterCar->getCarOldPosition());
+                                                slowerCar->setInteraction(Entity::Interaction::Pushed, angle, 3, speed * 0.15);
+                                                fasterCar->setSpeed(fasterCar->getSpeed() * 0.15f);
+                                                fasterCar->setPosition(fasterCar->getOldPosition());
                                                 return;
                                             default:
 std::cout << "Unknown collision: " << j << " corner " << corner << std::endl; 
